@@ -115,8 +115,6 @@ src
 
 #### Component Breakdown
 
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
-
 |   Component    |    Type    | state | props | Description                                                                                |
 | :------------: | :--------: | :---: | :---: | :----------------------------------------------------------------------------------------- |
 |     Header     | functional |   n   |   y   | _The header will contain nav / logo / search._                                             |
@@ -134,13 +132,22 @@ src
 
 #### Component Estimates
 
-| Task                | Priority | Estimated Time | Time Invested | Actual Time |
-| ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evalute possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
+| Task           | Priority | Estimated Time | Time Invested | Actual Time |
+| -------------- | :------: | :------------: | :-----------: | :---------: |
+| Header         |    L     |     3 hrs      |     - hrs     |     TBD     |
+| Logo           |    L     |     3 hrs      |     - hrs     |     TBD     |
+| Footer         |    L     |     1 hrs      |     - hrs     |     TBD     |
+| Main           |    H     |     6 hrs      |     - hrs     |     TBD     |
+| Gallery        |    H     |     6 hrs      |     - hrs     |     TBD     |
+| Login          |    H     |     5 hrs      |     - hrs     |     TBD     |
+| LoginAnimation |    L     |     12 hrs     |     - hrs     |     TBD     |
+| Register       |    H     |     4 hrs      |     - hrs     |     TBD     |
+| Upload         |    H     |     5 hrs      |     - hrs     |     TBD     |
+| Favourites     |    L     |     12 hrs     |     - hrs     |     TBD     |
+| SingleVideo    |    H     |     3 hrs      |     - hrs     |     TBD     |
+| Comments       |    H     |     8 hrs      |     - hrs     |     TBD     |
+| Unforeseen     |    H     |     12 hrs     |     - hrs     |     TBD     |
+| TOTAL          |          |     80 hrs     |     - hrs     |     TBD     |
 
 <br>
 
@@ -148,18 +155,16 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model.
+![ERD](./readmesrc/ERD.png)
 
 #### Data Heirarchy
-
-> Use this section to display the database, table, and attribute heirarchy.
 
 ```structure
 
 database_db
 |__ users/
-|__ resources/
 |__ posts/
+|__ comments/
 
 ```
 
