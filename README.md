@@ -1,5 +1,7 @@
 # PROJECT 4
 
+![HeroImage](./readmesrc/hero-image-readme.png)
+
 - [Full Stack Project](#Full-Stack-Project)
   - [Overview](#Overview)
     - [Team Members](#Team-Members)
@@ -21,7 +23,6 @@
   - [Code Showcase](#Code-Showcase)
   - [Code Issues & Resolutions](#Code-Issues--Resolutions)
 
-
 <br>
 
 ## Overview
@@ -30,11 +31,11 @@ _**IEDB** is the International EDM Database where you can find the latest releas
 
 ### Created by
 
-Created, designed, developed, directed, put together, assembled, and written by Richard M. Braamburg.  
+Created, designed, developed, directed, put together, assembled, and written by Richard M. Braamburg.
 
 ### Permissions
 
-All information used in **IEDB** are gathered from online free resources. New content can be added by users by providing URL's to the respective sources. Video footage will be gathered from online platforms like Youtube and Vimeo as long as the original user allows embedding the source. 
+All information used in **IEDB** are gathered from online free resources. New content can be added by users by providing URL's to the respective sources. Video footage will be gathered from online platforms like Youtube and Vimeo as long as the original user allows embedding the source.
 
 <br>
 
@@ -49,19 +50,19 @@ _The **IEDB** minimum requirements for the app are to provide a public overview 
 - _Every visitor of the website should have access to all content in the DB (viewing permission)_
 - _Users should have the ability to upload new content, edit their own content, delete their own content._
 - _Users should have the ability to change user settings and credentials - reset password and change username etc._
-- _Users shoudl be able to like / save posts to create their own favourites list._
+- _Users should be able to like / save posts to create their own favourites list._
+- _Users should be able to search for videos on title name_
 
 <br>
 
 ### MVP Libraries
 
-
-|     Library      | Description                                |
-| :--------------: | :----------------------------------------- |
-|      React       | _Front end - renders HTML, adds functionality to teh site, and accesses DB._ |
+|     Library      | Description                                                                       |
+| :--------------: | :-------------------------------------------------------------------------------- |
+|      React       | _Front end - renders HTML, adds functionality to teh site, and accesses DB._      |
 |   React Router   | _Allows user to navigate through the website -> auto directs when not logged in._ |
-|     Ruby on Rails      | _Backend - database and auth._ |
-|  Ruby Controllers  | _Create full CRUD endpoints (RESTful API)._ |
+|  Ruby on Rails   | _Backend - database and auth._                                                    |
+| Ruby Controllers | _Create full CRUD endpoints (RESTful API)._                                       |
 
 <br>
 
@@ -69,47 +70,46 @@ _The **IEDB** minimum requirements for the app are to provide a public overview 
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views.
-
-![Dummy Link](url)
+![Lading Page](./readmesrc/landing-page.png)
 
 - Desktop Landing
 
-![Dummy Link](url)
+![Login Page](./readmesrc/login-page.png)
 
-- Desktop Hero
+- Login Page
 
-![Dummy Link](url)
+![Register Page](./readmesrc/register-page.png)
 
-- Resource Index
+- Register Page
 
-![Dummy Link](url)
+![Mobile Page](./readmesrc/mobile-page.png)
 
-- Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
+- Mobile Page
 
 #### Component Hierarchy
 
-> Use this section to define your React components and the data architecture of your app.
-
-``` structure
+```structure
 
 src
 |__ assets/
       |__ fonts
       |__ graphics
       |__ images
-      |__ mockups
 |__ components/
-      |__ Header.jsx
+      |__ Header.js
+      |__ Logo.js
+      |__ Footer.js
+      |__ Main.js
+      |__ Gallery.js
+      |__ Login.js
+      |__ LoginAnimation.js
+      |__ Register.js
+      |__ Upload.js
+      |__ Favourites.js
+      |__ SingleVideo.js
+      |__ Comments
 |__ services/
+      |__ ApiHelper.js
 
 ```
 
@@ -117,17 +117,22 @@ src
 
 > Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
 
-|  Component   |    Type    | state | props | Description                                                      |
-| :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   class    |   y   |   n   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card | functional |   n   |   y   | _The cards will render the post info via props._                 |
-|    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
+|   Component    |    Type    | state | props | Description                                                                                |
+| :------------: | :--------: | :---: | :---: | :----------------------------------------------------------------------------------------- |
+|     Header     | functional |   n   |   y   | _The header will contain nav / logo / search._                                             |
+|      Logo      | functional |   n   |   n   | _Logo will be interactive hence the seperate component._                                   |
+|     Footer     | functional |   n   |   n   | _The footer will contain static data / links._                                             |
+|      Main      |   class    |   y   |   y   | _Container class that contains all other elements that will be rendered._                  |
+|    Gallery     |   class    |   y   |   y   | _Overview of all videos available on the page._                                            |
+|     Login      |   class    |   y   |   y   | _Login component._                                                                         |
+| LoginAnimation | functional |   n   |   n   | _Login will have an SVG animation that is rendered seperately._                            |
+|    Register    |   class    |   y   |   y   | _Register component._                                                                      |
+|     Upload     |   class    |   y   |   y   | _Users can upload / create / delete content, upload will enable the upload functionality._ |
+|   Favourites   | functional |   n   |   n   | _Overview of videos likes by the user._                                                    |
+|  SingleVideo   | functional |   n   |   n   | _Render of one video + CRUD functionality and comment section._                            |
+|    Comments    |   class    |   y   |   y   | _Comment component is rendered seperately._                                                |
 
 #### Component Estimates
-
-> Use this section to estimate the time necessary to build out each of the components you've described above.
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
@@ -149,7 +154,7 @@ src
 
 > Use this section to display the database, table, and attribute heirarchy.
 
-``` structure
+```structure
 
 database_db
 |__ users/
@@ -160,13 +165,13 @@ database_db
 
 <br>
 
-***
+---
 
 ## Post-MVP
 
 > Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
 
-***
+---
 
 ## Project Delivery
 
@@ -180,4 +185,4 @@ database_db
 
 > Use this section to list of all major issues encountered and their resolution, if you'd like.
 
-***
+---
