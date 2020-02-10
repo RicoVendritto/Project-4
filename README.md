@@ -177,45 +177,47 @@ _The biggest challenge is going to stay focussed and emphasize more on design th
 
 ## Post-MVP - Stretch Goals
 
-- _Password reset functionality_ 
--- source 1: https://medium.com/binar-academy/forgot-password-feature-on-rails-api-8e4a7368c59
--- source 2: https://medium.com/@pascales/welcome-email-for-new-user-using-action-mailer-becdb43ee6a
--- this will require additional work on the back-end - model / controller / routes
-<br>
+- _Password reset functionality_
+  -- source 1: https://medium.com/binar-academy/forgot-password-feature-on-rails-api-8e4a7368c59
+  -- source 2: https://medium.com/@pascales/welcome-email-for-new-user-using-action-mailer-becdb43ee6a
+  -- this will require additional work on the back-end - model / controller / routes
+  <br>
 - _Followers_
--- As in P3 but now with Ruby on Rails
-<br>
+  -- As in P3 but now with Ruby on Rails
+  <br>
 - _Upload files_
--- Video material is difficult due to size / formats. Potentially, profile pictures.
-<br>
+  -- Video material is difficult due to size / formats. Potentially, profile pictures.
+  <br>
 - _Chat Functionality_
--- Shoot a message to another user. 
-<br>
+  -- Shoot a message to another user.
+  <br>
 - _Drag-'n-Drop functionality favourites list_
--- https://github.com/atlassian/react-beautiful-dnd
-<br>
+  -- https://github.com/atlassian/react-beautiful-dnd
+  <br>
 - _Customize video player + more functionality_
--- https://www.npmjs.com/package/react-player
-<br>
-- _Login & Register page -> Follow user input in inputfield by tracking caret
--- Currently working concept but there are better solutions to calculate X Y axis. 
--- https://www.npmjs.com/package/caret-pos
-
+  -- https://www.npmjs.com/package/react-player
+  <br>
+- _Login & Register page -> Follow user input in inputfield by tracking caret_
+  -- Currently working concept but there are better solutions to calculate X Y axis.
+  -- https://www.npmjs.com/package/caret-pos
 
 ## Technology / Resources used
 
 _Preparation_
+
 - Figma
 - VS Code
 - Github
 - Draw.io
 
 _Backend_
+
 - Ruby on Rails
 - RESTful Api
 - SQlite / MongoDb (please advise)
 
 _Frontend_
+
 - React
 - React Router
 - Axios
@@ -224,7 +226,6 @@ _Frontend_
 - Node.js
 - Google Fonts
 - React Libraries. _(See stretch goals)_
-
 
 ---
 
