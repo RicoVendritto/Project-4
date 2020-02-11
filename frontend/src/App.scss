@@ -1,0 +1,110 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.App {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  outline: 1px solid aquamarine;
+}
+
+/////////////////// HEADER ///////////////////
+
+.header {
+  margin: 0;
+  padding: 0;
+
+  button {
+    margin: 0;
+    padding: 0;
+    width: 7.5vh;
+    height: 7.5vh;
+    border-radius: 15px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    font-weight: 900;
+    box-shadow: 1px 1px 1px blue;
+
+    &:hover {
+      box-shadow: 3px 3px 3px blue;
+    }
+  }
+
+  input {
+    height: 6vh;
+    width: 20vw;
+  }
+}
+
+.head-top {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.head-left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 8vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.edm-logo {
+  height: 80%;
+  width: 10%;
+}
+
+main {
+  margin: 10vh 0 0 8vw;
+  height: 90vh;
+  width: 95vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/////////////////// LOGIN ///////////////////
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    margin: 2vh 2vw;
+    padding: 1vh 1vw;
+    width: 25vw;
+    height: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &::placeholder {
+      color: blue;
+      font-weight: 500;
+      font-size: 2em;
+      text-transform: uppercase; 
+    }
+  }
+}

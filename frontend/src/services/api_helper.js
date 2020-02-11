@@ -35,6 +35,14 @@ const LocalStorage = resp => {
   localStorage.setItem("email", resp.data.user.email);
 };
 
+// VERIFY USER
+export const verifyUser = () => {
+  const token = localStorage.getItem("authToken");
+  if (token) {
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+  }
+};
+
 //PASSWORD FORGOT - 3
 export const forgotUser = async email => {
   const resp = await api.post(`password/forgot`, email);
@@ -105,6 +113,7 @@ export const commentUpdate = async (p_id, c_id, commentData) => {
   return resp.data;
 };
 
+// DELETE COMMENT - 14
 export const commentDelete = async (p_id, c_id) => {
   const resp = await api.destroy(`/posts/${p_id}/comments/${c_id}`);
   return resp.data;

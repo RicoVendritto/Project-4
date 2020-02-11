@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./App.scss";
+
+import { Route, Switch } from "react-router-dom";
+
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Login from "./components/Login";
 
 class App extends Component {
   constructor(props) {
@@ -8,7 +14,17 @@ class App extends Component {
   }
 
   render() {
-    return <div className="App">Hello, world!</div>;
+    return (
+      <div className="App">
+        <Header />
+        <main>
+          <Switch>
+            <Login />
+            {/* <Main /> */}
+          </Switch>
+        </main>
+      </div>
+    );
   }
 }
 
