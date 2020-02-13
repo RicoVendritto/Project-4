@@ -1,6 +1,11 @@
 <h3>Hi <%= @user.name %>,</h3>
 <br>
-<p><%= @user.reset_password_token %></p>
+<p>This is your reset password link:</p>
+<br>
+<p>
+  <a href="http://localhost:3001/passwordreset/<%= @user.reset_password_token %>">Text sample</a></p>
+<br>
+<p>Your token will expire in 1hr.</p>
 <br>
 <img src="https://i.ibb.co/17vqgqX/logo.png" alt="logo" border="0">
 <h6>CEO</h6>

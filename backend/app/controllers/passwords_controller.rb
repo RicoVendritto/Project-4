@@ -1,4 +1,7 @@
 class PasswordsController < ApplicationController
+  skip_before_action :authorize_request, only: :forgot
+  skip_before_action :authorize_request, only: :reset
+
   def forgot
     if params[:email].blank? # check if email is present
       return render json: {error: 'Email not present'}

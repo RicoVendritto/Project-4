@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = current_user.posts
+    # @posts = current_user.posts
+    @posts = Post.all
     json_response(@posts)
   end
 
