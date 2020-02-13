@@ -26,7 +26,7 @@ class Register extends Component {
           className="register-form"
           onSubmit={e => this.props.handleRegister(e, this.state)}
         >
-          {this.props.errorText && <h4>this.props.errorText</h4>}
+          {this.props.errorText && <h4>{this.props.errorText}</h4>}
           <input
             type="text"
             name="name"

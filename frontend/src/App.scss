@@ -46,9 +46,9 @@ body {
 
 .head-top {
   position: fixed;
-  left: 8vw;
+  left: 0;
   top: 0;
-  width: 92vw;
+  width: 100vw;
   height: 10vh;
   display: flex;
   flex-direction: row;
@@ -59,12 +59,14 @@ body {
 .head-left {
   position: fixed;
   left: 0;
-  top: 0;
+  top: 50vh;
+  transform: translateY(-50%);
   width: 8vw;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  flex: 10;
   align-items: center;
 }
 

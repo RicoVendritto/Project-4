@@ -6,6 +6,7 @@ const Header = props => {
   return (
     <header>
       <section className="header head-top">
+        <div>Dropdown</div>
         <svg
           className="edm-logo"
           width="300"
@@ -50,7 +51,6 @@ const Header = props => {
         />
       </section>
       <section className="header head-left">
-        <div>Dropdown</div>
         <button>Home</button>
         <button>Liked</button>
         <button>Upload</button>

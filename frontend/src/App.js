@@ -4,6 +4,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { loginUser, registerUser, verifyUser } from "./services/api_helper";
 
 import Header from "./components/Header";
+import ChatBoard from "./components/ChatBoard";
 import Main from "./components/Main";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -79,6 +80,7 @@ class App extends Component {
           currentUser={this.state.currentUser}
           handleLogout={this.handleLogout}
         />
+        <ChatBoard />
         {/* <Background /> */}
         <main>
           <Switch>
