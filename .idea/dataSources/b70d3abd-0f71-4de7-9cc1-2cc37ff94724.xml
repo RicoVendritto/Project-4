@@ -43,6 +43,7 @@
     <index id="17" parent="6" name="sqlite_autoindex_ar_internal_metadata_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>key</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="18" parent="6">
@@ -54,11 +55,11 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="20" parent="7" name="comment">
       <Position>2</Position>
       <DataType>text|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
     <column id="21" parent="7" name="post_id">
       <Position>3</Position>
@@ -77,6 +78,7 @@
     </column>
     <index id="24" parent="7" name="index_comments_on_post_id">
       <ColNames>post_id</ColNames>
+      <ColumnCollations></ColumnCollations>
     </index>
     <key id="25" parent="7">
       <ColNames>id</ColNames>
@@ -135,6 +137,7 @@
     <index id="37" parent="9" name="sqlite_autoindex_schema_migrations_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version</ColNames>
+      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="38" parent="9">
