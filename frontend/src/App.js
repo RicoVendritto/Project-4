@@ -44,7 +44,7 @@ class App extends Component {
     this.setState({
       currentUser
     });
-    this.props.history.push("/posts");
+    this.props.history.push("/main");
   };
 
   handleRegister = async (e, regoData) => {
@@ -57,7 +57,7 @@ class App extends Component {
       this.setState({
         currentUser
       });
-      this.props.history.push("/posts");
+      this.props.history.push("/main");
     } else {
       this.setState({ errorText: currentUser.errorMessage });
     }
@@ -71,6 +71,7 @@ class App extends Component {
     localStorage.removeItem("authToken");
     localStorage.removeItem("name");
     localStorage.removeItem("email");
+    this.props.history.push("/main");
   };
 
   render() {

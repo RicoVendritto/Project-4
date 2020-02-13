@@ -12,7 +12,41 @@ body {
 }
 
 * {
-  outline: 1px solid aquamarine;
+  // outline: 1px solid aquamarine;
+}
+
+/////////////////// CHATBOX ///////////////////
+
+.chatBoard {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: 50vh;
+    width: 20vw;
+  // transform: translateY(-50%);
+
+  iframe {
+    position: absolute;
+    left: 20vw;
+    top: 0;
+    height: 50vh;
+    width: 20vw;
+    // border: 1px solid red;
+  }
+
+  .toggleChat {
+    position: absolute;
+    background: none;
+    border: none;
+    bottom: 1vh;
+    right: 1vh;
+    color: red;
+    text-shadow: 1px solid red;
+
+    // height: 5vh;
+    // width: 5vh;
+    font-size: 5em;
+  }
 }
 
 /////////////////// HEADER ///////////////////
@@ -111,7 +145,7 @@ main {
       color: blue;
       font-weight: 500;
       font-size: 2em;
-      text-transform: uppercase; 
+      text-transform: uppercase;
     }
   }
 }

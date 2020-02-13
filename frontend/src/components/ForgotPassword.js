@@ -18,13 +18,20 @@ class ForgotPassword extends Component {
     });
   };
 
+  handleForget = async e => {
+    e.preventDefault();
+    const resp = await forgotUser(this.state);
+    console.log(resp);
+    if (resp.status === "ok") {
+      console.log("OK");
+      alert("hello world");
+    }
+  };
+
   render() {
     return (
       <div>
-        <form
-          className="register-form"
-          onSubmit={e => (e.preventDefault(), forgotUser(this.state))}
-        >
+        <form className="register-form" onSubmit={e => this.handleForget(e)}>
           <input
             type="email"
             name="email"
