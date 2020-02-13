@@ -1,6 +1,8 @@
 import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
-const Header = () => {
+const Header = props => {
+  console.log(props);
   return (
     <header>
       <section className="header head-top">
@@ -31,7 +33,21 @@ const Header = () => {
           <input type="text" placeholder="search" />
           <button>SEARCH</button>
         </form>
-        <img src="user" alt="user-image" />
+        {!props.currentUser ? (
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
+        ) : (
+          <button onClick={e => props.handleLogout(e)}>Logout</button>
+        )}
+        <Link to="/register">
+          <button>Register</button>
+        </Link>
+        <img
+          className="user_avatar"
+          alt="user"
+          src="https://i5.walmartimages.com/asr/9d3860a6-4ac0-4f75-a412-ac56cbab01a7_1.f695c93416d562f09ddc4e4b9a88a5d8.jpeg"
+        />
       </section>
       <section className="header head-left">
         <div>Dropdown</div>
@@ -43,4 +59,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

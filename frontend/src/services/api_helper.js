@@ -45,6 +45,8 @@ export const verifyUser = () => {
 
 //PASSWORD FORGOT - 3
 export const forgotUser = async email => {
+  console.log("forgot!");
+  console.log(email);
   const resp = await api.post(`password/forgot`, email);
   console.log(resp);
   return resp.data;

@@ -1,15 +1,22 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import { position, offset } from "caret-pos";
+import { withRouter } from "react-router-dom";
+import { resetUser } from "../services/api_helper";
 
-class Login extends Component {
+class ResetPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: ""
+      token: null,
+      email: null,
+      password: null
     };
   }
+
+  componentDidMount = () => {
+    this.setState({
+      token: this.props.token
+    });
+  };
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -19,11 +26,12 @@ class Login extends Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <form
           className="register-form"
-          onSubmit={e => this.props.handleLogin(e, this.state)}
+          onSubmit={e => (e.preventDefault(), resetUser(this.state))}
         >
           <input
             type="text"
@@ -45,12 +53,9 @@ class Login extends Component {
           />
           <button>Submit</button>
         </form>
-        <Link to="/forgotpassword">
-          <button>Forgot Password</button>
-        </Link>
       </div>
     );
   }
 }
 
-export default withRouter(Login);
+export default withRouter(ResetPassword);

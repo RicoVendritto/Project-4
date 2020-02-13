@@ -46,9 +46,9 @@ body {
 
 .head-top {
   position: fixed;
-  left: 0;
+  left: 8vw;
   top: 0;
-  width: 100vw;
+  width: 92vw;
   height: 10vh;
   display: flex;
   flex-direction: row;
@@ -80,6 +80,11 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.user_avatar {
+  height: 7.5vh;
+  border-radius: 50%;
 }
 
 /////////////////// LOGIN ///////////////////
