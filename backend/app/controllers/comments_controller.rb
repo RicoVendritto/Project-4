@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:comment)
+    params.permit(:comment, :created_by)
   end
 
   def set_post
