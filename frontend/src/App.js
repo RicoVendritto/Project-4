@@ -3,9 +3,11 @@ import "./App.scss";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { loginUser, registerUser, verifyUser } from "./services/api_helper";
 
+import WelcomePage from "./components/WelcomePage";
 import Header from "./components/Header";
 import ChatBoard from "./components/ChatBoard";
 import Main from "./components/Main";
+import SingleVideo from "./components/SingleVideo";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ResetPassword from "./components/ResetPassword";
@@ -17,7 +19,8 @@ class App extends Component {
     super(props);
     this.state = {
       currentUser: false,
-      errorText: null
+      errorText: null,
+      posts: null
     };
   }
 
@@ -27,7 +30,6 @@ class App extends Component {
       const name = localStorage.getItem("name");
       const email = localStorage.getItem("email");
       const user = { name, email };
-      console.log(user);
       user &&
         this.setState({
           currentUser: user
@@ -36,8 +38,6 @@ class App extends Component {
   };
 
   handleLogin = async (e, loginData) => {
-    console.log("handlelogin");
-    console.log(loginData);
     e.preventDefault();
     const currentUser = await loginUser(loginData);
     console.log(currentUser);
@@ -48,8 +48,6 @@ class App extends Component {
   };
 
   handleRegister = async (e, regoData) => {
-    console.log("handleRego");
-    console.log(regoData);
     e.preventDefault();
     const currentUser = await registerUser(regoData);
     console.log(currentUser);
@@ -77,6 +75,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* <WelcomePage /> */}
         <Header
           currentUser={this.state.currentUser}
           handleLogout={this.handleLogout}
@@ -117,7 +116,12 @@ class App extends Component {
                 <ResetPassword token={props.match.params.token} />
               )}
             />
-            {/* <Main /> */}
+            <Route exact path="/main" render={() => <Main />} />
+            <Route
+              exact
+              path="/video/:id"
+              render={props => <SingleVideo vid_id={props.match.params.id} />}
+            />
           </Switch>
         </main>
       </div>
