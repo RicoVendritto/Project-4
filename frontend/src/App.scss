@@ -12,7 +12,7 @@ body {
 }
 
 * {
-  // outline: 1px solid aquamarine;
+  outline: 1px solid aquamarine;
 }
 
 /////////////////// CHATBOX ///////////////////
@@ -21,17 +21,28 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-  height: 50vh;
-    width: 20vw;
+  height: 40vh;
+  width: 22vw;
+  // background-color: darkcyan;
   // transform: translateY(-50%);
 
   iframe {
     position: absolute;
-    left: 20vw;
-    top: 0;
-    height: 50vh;
-    width: 20vw;
+    background-color: darkcyan;
+    height: 40vh;
+    width: 22vw;
+    transition: 1s;
     // border: 1px solid red;
+
+    &.is-active {
+      left: 0;
+      top: 0;
+    }
+
+    &.not-active {
+      left: 0;
+      top: 39vh;
+    }
   }
 
   .toggleChat {
@@ -40,12 +51,13 @@ body {
     border: none;
     bottom: 1vh;
     right: 1vh;
-    color: red;
-    text-shadow: 1px solid red;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 3em;
+    transition: color 1s;
+  }
 
-    // height: 5vh;
-    // width: 5vh;
-    font-size: 5em;
+  .grayed-out {
+    color: rgba(255, 255, 255, 0.2);
   }
 }
 
@@ -62,7 +74,7 @@ body {
     height: 7.5vh;
     border-radius: 15px;
     border: 1px solid white;
-    background-color: black;
+    background-color: orange;
     color: white;
     font-weight: 900;
     box-shadow: 1px 1px 1px blue;
@@ -92,30 +104,31 @@ body {
 
 .head-left {
   position: fixed;
-  left: 0;
   top: 50vh;
   transform: translateY(-50%);
   width: 8vw;
-  height: 50vh;
+  height: 40vh;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0 5px 5px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   flex: 10;
   align-items: center;
+  transition: 1s;
+}
+
+.show-menu {
+  left: 0vw;
+}
+
+.hide-menu {
+  left: -7.5vw;
 }
 
 .edm-logo {
   height: 80%;
   width: 10%;
-}
-
-main {
-  margin: 10vh 0 0 8vw;
-  height: 90vh;
-  width: 95vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .user_avatar {
@@ -148,4 +161,42 @@ main {
       text-transform: uppercase;
     }
   }
+}
+
+/////////////////// MAIN ///////////////////
+
+main {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .main_container {
+    display: grid;
+    // grid-auto-columns: 100%;
+    // grid-column: grow;
+    grid-template-columns: repeat(4, 60vw);
+    margin-left: 140vw;
+
+    .ind_vid_container {
+      margin: 1vh 1vw;
+      width: 60vw;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: pink;
+      font-size: 4em;
+    }
+  }
+}
+
+/////////////////// MAIN ///////////////////
+
+.single-video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
