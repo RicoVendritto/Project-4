@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
 
   # POST /posts/:post_id/comments
   def create
-    @post.comments.create!(comment_params)
+    comment = @post.comments.create!(comment_params)
     # json_response(status: "SUCCESS", message: 'comment created successfully.')
-    json_response(comment_params)
+    json_response(comment)
   end
 
   # PUT /posts/:post_id/comments/:id
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:comment, :created_by, :user_id)
+    params.permit(:comment, :created_by, :user_name)
   end
 
   def set_post
