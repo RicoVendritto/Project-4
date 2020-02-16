@@ -11,7 +11,6 @@ export const loginUser = async loginData => {
     LocalStorage(resp);
     return resp.data.user;
   } catch (e) {
-    console.log(e.response.status);
     if (e.response.status === 401) {
       console.log("You shall not pass!");
       return {
@@ -39,7 +38,6 @@ export const registerUser = async registerData => {
 };
 
 const LocalStorage = resp => {
-  console.log(resp);
   localStorage.setItem("authToken", resp.data.auth_token);
   localStorage.setItem("name", resp.data.user.name);
   localStorage.setItem("email", resp.data.user.email);
@@ -74,7 +72,7 @@ export const postsAll = async () => {
 
 // CREATE POSTS - 6
 export const postsCreate = async postData => {
-  const resp = await api.posts(`/posts/`, postData);
+  const resp = await api.post(`/posts/`, postData);
   console.log(resp);
   return resp.data;
 };
