@@ -56,24 +56,19 @@ export const verifyUser = () => {
 
 //PASSWORD FORGOT - 3
 export const forgotUser = async email => {
-  console.log("forgot!");
-  console.log(email);
   const resp = await api.post(`password/forgot`, email);
-  console.log(resp);
   return resp.data;
 };
 
 //PASSWORD RESET - 4
 export const resetUser = async resetData => {
   const resp = await api.post(`password/reset`, resetData);
-  console.log(resp);
   return resp.data;
 };
 
 // ALL POSTS - 5
 export const postsAll = async () => {
   const resp = await api.get(`/posts/`);
-  console.log(resp);
   return resp.data;
 };
 
