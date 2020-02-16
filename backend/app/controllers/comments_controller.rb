@@ -15,7 +15,8 @@ class CommentsController < ApplicationController
   # POST /posts/:post_id/comments
   def create
     @post.comments.create!(comment_params)
-    json_response(status: "SUCCESS", message: 'comment created successfully.')
+    # json_response(status: "SUCCESS", message: 'comment created successfully.')
+    json_response(comment_params)
   end
 
   # PUT /posts/:post_id/comments/:id
