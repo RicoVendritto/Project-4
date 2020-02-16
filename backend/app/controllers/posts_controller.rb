@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
   def post_params
     # whitelist params
-    params.permit(:title, :video_url, :artist, :description)
+    params.permit(:title, :video_url, :artist, :description, :category)
   end
 
   def set_post
