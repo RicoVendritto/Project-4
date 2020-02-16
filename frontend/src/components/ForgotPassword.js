@@ -7,7 +7,8 @@ class ForgotPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: ""
+      email: "",
+      confirmation_text: ""
     };
   }
 
@@ -23,8 +24,10 @@ class ForgotPassword extends Component {
     const resp = await forgotUser(this.state);
     console.log(resp);
     if (resp.status === "ok") {
-      console.log("OK");
-      alert("hello world");
+      this.setState({
+        confirmation_text: "We've sent you an email with a reset link",
+        email: ""
+      });
     }
   };
 
@@ -32,6 +35,9 @@ class ForgotPassword extends Component {
     return (
       <div>
         <form className="register-form" onSubmit={e => this.handleForget(e)}>
+          {this.state.confirmation_text && (
+            <p>{this.state.confirmation_text}</p>
+          )}
           <input
             type="email"
             name="email"
