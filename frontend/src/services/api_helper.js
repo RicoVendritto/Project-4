@@ -5,10 +5,20 @@ const api = axios.create({
 
 // LOGIN - 1
 export const loginUser = async loginData => {
-  const resp = await api.post(`/auth/login`, loginData);
-  api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
-  LocalStorage(resp);
-  return resp.data.user;
+  try {
+    const resp = await api.post(`auth/login`, loginData);
+    api.defaults.headers.common.authorization = `Bearer ${resp.data.auth_token}`;
+    LocalStorage(resp);
+    return resp.data.user;
+  } catch (e) {
+    console.log(e.response.status);
+    if (e.response.status === 401) {
+      console.log("You shall not pass!");
+      return {
+        errorMessage: "Invalid login credentials"
+      };
+    }
+  }
 };
 
 // REGISTER - 2
@@ -19,7 +29,6 @@ export const registerUser = async registerData => {
     LocalStorage(resp);
     return resp.data.user;
   } catch (e) {
-    console.log(e.response);
     if (e.response.status === 422) {
       return {
         errorMessage:
