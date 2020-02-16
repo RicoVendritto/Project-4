@@ -100,6 +100,20 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+
+  .user_avatar {
+    height: 7.5vh;
+    border-radius: 50%;
+    border: .5px solid white;
+    background-color: black;
+  }
+
+  .spinning_gif {
+    height: 7.5vh;
+    border-radius: 50%;
+    border: .5px solid white;
+    background-color: black;
+  }
 }
 
 .head-left {
@@ -129,11 +143,6 @@ body {
 .edm-logo {
   height: 80%;
   width: 10%;
-}
-
-.user_avatar {
-  height: 7.5vh;
-  border-radius: 50%;
 }
 
 /////////////////// LOGIN ///////////////////
