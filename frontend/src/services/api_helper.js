@@ -89,7 +89,7 @@ export const postUpdate = async (id, postData) => {
 
 // DELETE INDIVIDUAL POST - 9
 export const postDelete = async id => {
-  const resp = await api.destroy(`/posts/${id}`);
+  const resp = await api.delete(`/posts/${id}`);
   return resp.data;
 };
 
@@ -119,6 +119,6 @@ export const commentUpdate = async (p_id, c_id, commentData) => {
 
 // DELETE COMMENT - 14
 export const commentDelete = async (p_id, c_id) => {
-  const resp = await api.destroy(`/posts/${p_id}/comments/${c_id}`);
+  const resp = await api.delete(`/posts/${p_id}/comments/${c_id}`);
   return resp.data;
 };
