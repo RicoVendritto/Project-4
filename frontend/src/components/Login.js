@@ -25,8 +25,9 @@ class Login extends Component {
           className="register-form"
           onSubmit={e => this.props.handleLogin(e, this.state)}
         >
+          {this.props.errorText && <h4>{this.props.errorText}</h4>}
           <input
-            type="text"
+            type="email"
             name="email"
             autoComplete="email"
             placeholder="email"
