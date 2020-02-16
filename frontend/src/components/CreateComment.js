@@ -7,21 +7,23 @@ class CreateComment extends Component {
     super(props);
     this.state = {
       comment: null,
-      created_by: null
+      created_by: null,
+      user_id: null
     };
   }
 
   componentDidMount = () => {
     verifyUser();
     this.setState({
-      created_by: localStorage.getItem("name")
+      created_by: localStorage.getItem("name"),
+      user_id: localStorage.getItem("id")
     });
   };
 
   handleChange = e => {
     const { name, value } = e.target;
     console.log(name);
-    console.log(value);
+    console.log(value); 
     this.setState({
       [name]: value
     });
