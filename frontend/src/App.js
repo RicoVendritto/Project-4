@@ -1,13 +1,21 @@
 import React, { Component } from "react";
 import "./App.scss";
 import { Route, Switch, withRouter } from "react-router-dom";
-import { loginUser, registerUser, verifyUser } from "./services/api_helper";
+import {
+  loginUser,
+  registerUser,
+  verifyUser,
+  postsCreate,
+  postUpdate
+} from "./services/api_helper";
 
 import WelcomePage from "./components/WelcomePage";
 import Header from "./components/Header";
 import ChatBoard from "./components/ChatBoard";
 import Main from "./components/Main";
 import SingleVideo from "./components/SingleVideo";
+import Upload from "./components/Upload";
+import UpdatePost from "./components/UpdatePost";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ResetPassword from "./components/ResetPassword";
@@ -77,6 +85,18 @@ class App extends Component {
     this.props.history.push("/main");
   };
 
+  uploadVideo = async (e, videoData) => {
+    e.preventDefault();
+    const resp = await postsCreate(videoData);
+    console.log(resp);
+  };
+
+  updateVideo = async (e, id, postData) => {
+    e.preventDefault();
+    const resp = await postUpdate(id, postData);
+    console.log(resp);
+  };
+
   render() {
     return (
       <div className="App">
@@ -127,6 +147,21 @@ class App extends Component {
               exact
               path="/video/:id"
               render={props => <SingleVideo vid_id={props.match.params.id} />}
+            />
+            <Route
+              exact
+              path="/upload"
+              render={() => <Upload uploadVideo={this.uploadVideo} />}
+            />
+            <Route
+              exact
+              path="/edit/:id"
+              render={props => (
+                <UpdatePost
+                  updateVideo={this.updateVideo}
+                  postId={props.match.params.id}
+                />
+              )}
             />
           </Switch>
         </main>
