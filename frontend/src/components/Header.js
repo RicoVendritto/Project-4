@@ -78,6 +78,7 @@ class Header extends Component {
             alt="user"
             src="https://i5.walmartimages.com/asr/9d3860a6-4ac0-4f75-a412-ac56cbab01a7_1.f695c93416d562f09ddc4e4b9a88a5d8.jpeg"
           />
+          <img className="spinning_gif" src="https://media.giphy.com/media/3oGRFAUNzSHAMWZLxe/giphy.gif" alt="user_gif"/>
         </section>
         <section className="header head-left hide-menu">
           <Link to="/main">
