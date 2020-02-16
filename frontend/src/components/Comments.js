@@ -48,7 +48,7 @@ class Comments extends Component {
     let now = new Date();
     let post = new Date(postDate);
     let diff_time = now.getTime() - post.getTime();
-    let diff_days = Math.ceil(diff_time / (1000 * 3600 * 24));
+    let diff_days = Math.round(diff_time / (1000 * 3600 * 24));
     return diff_days;
   };
 
