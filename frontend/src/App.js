@@ -40,11 +40,15 @@ class App extends Component {
   handleLogin = async (e, loginData) => {
     e.preventDefault();
     const currentUser = await loginUser(loginData);
-    console.log(currentUser);
-    this.setState({
-      currentUser
-    });
-    this.props.history.push("/main");
+    console.log(currentUser.errorMessage);
+    if (!currentUser.errorMessage) {
+      this.setState({
+        currentUser
+      });
+      this.props.history.push("/main");
+    } else {
+      this.setState({ errorText: currentUser.errorMessage });
+    }
   };
 
   handleRegister = async (e, regoData) => {
@@ -92,6 +96,7 @@ class App extends Component {
                 <Login
                   handleLogin={this.handleLogin}
                   handleReset={this.handleReset}
+                  errorText={this.state.errorText}
                 />
               )}
             />
