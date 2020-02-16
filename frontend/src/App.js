@@ -69,6 +69,7 @@ class App extends Component {
     localStorage.removeItem("authToken");
     localStorage.removeItem("name");
     localStorage.removeItem("email");
+    localStorage.removeItem("id");
     this.props.history.push("/main");
   };
 
