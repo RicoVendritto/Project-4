@@ -38,7 +38,7 @@ class SingleVideo extends Component {
             />
             <p>{this.state.video.description}</p>
           </div>
-          <Comments />
+          <Comments vid_id={this.props.vid_id} />
         </div>
       )
     );

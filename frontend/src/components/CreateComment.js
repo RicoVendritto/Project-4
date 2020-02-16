@@ -1,30 +1,49 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { verifyUser } from "../services/api_helper";
 
 class CreateComment extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comment: null
+      comment: null,
+      created_by: null
     };
   }
+
+  componentDidMount = () => {
+    verifyUser();
+    this.setState({
+      created_by: localStorage.getItem("name")
+    });
+  };
 
   handleChange = e => {
     const { name, value } = e.target;
     console.log(name);
     console.log(value);
+    this.setState({
+      [name]: value
+    });
   };
 
   render() {
+    console.log(this.props.vid_id);
+    console.log(this.props);
     return (
       <div>
-        <form className="comment-form" onSubmit={e => alert("hello world")}>
+        <form
+          className="comment-form"
+          onSubmit={e =>
+            this.props.handleComment(e, this.props.vid_id, this.state)
+          }
+        >
           <input
             type="text"
             name="comment"
             autoComplete="none"
             placeholder="comment"
-            value={this.state.email}
+            value={this.state.comment}
             onChange={e => this.handleChange(e)}
             required
           />

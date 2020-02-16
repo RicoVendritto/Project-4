@@ -175,13 +175,18 @@ main {
     display: grid;
     // grid-auto-columns: 100%;
     // grid-column: grow;
-    grid-template-columns: repeat(4, 60vw);
-    margin-left: 140vw;
+    grid-template-columns: repeat(4, 50vw);
+    margin-left: 100vw;
 
     .ind_vid_container {
       margin: 1vh 1vw;
-      width: 60vw;
+      // padding: 1vh 1vw;
+      width: 50vw;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     h1 {
