@@ -18,9 +18,9 @@ class Header extends Component {
     headLeft.classList.contains("show-menu")
       ? headLeft.classList.remove("show-menu")
       : headLeft.classList.add("show-menu");
-    headLeft.classList.contains("hide-menu") 
-    ? headLeft.classList.remove("hide-menu")
-    : headLeft.classList.add("hide-menu");
+    headLeft.classList.contains("hide-menu")
+      ? headLeft.classList.remove("hide-menu")
+      : headLeft.classList.add("hide-menu");
   };
 
   render() {
@@ -78,14 +78,20 @@ class Header extends Component {
             alt="user"
             src="https://i5.walmartimages.com/asr/9d3860a6-4ac0-4f75-a412-ac56cbab01a7_1.f695c93416d562f09ddc4e4b9a88a5d8.jpeg"
           />
-          <img className="spinning_gif" src="https://media.giphy.com/media/3oGRFAUNzSHAMWZLxe/giphy.gif" alt="user_gif"/>
+          <img
+            className="spinning_gif"
+            src="https://media.giphy.com/media/3oGRFAUNzSHAMWZLxe/giphy.gif"
+            alt="user_gif"
+          />
         </section>
         <section className="header head-left hide-menu">
           <Link to="/main">
             <button>Home</button>
           </Link>
           <button>Liked</button>
-          <button>Upload</button>
+          <Link to="/upload">
+            <button>Upload</button>
+          </Link>
         </section>
       </header>
     );
