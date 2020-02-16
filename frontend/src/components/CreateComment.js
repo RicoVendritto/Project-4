@@ -8,15 +8,15 @@ class CreateComment extends Component {
     this.state = {
       comment: null,
       created_by: null,
-      user_id: null
+      user_name: null
     };
   }
 
   componentDidMount = () => {
     verifyUser();
     this.setState({
-      created_by: localStorage.getItem("name"),
-      user_id: localStorage.getItem("id")
+      created_by: localStorage.getItem("id"),
+      user_name: localStorage.getItem("name")
     });
   };
 
