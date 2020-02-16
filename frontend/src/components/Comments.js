@@ -37,6 +37,7 @@ class Comments extends Component {
   render() {
     console.log(this.props.vid_id);
     console.log(this.state.comments);
+    console.log(localStorage);
     return (
       <>
         <h2>COMMENTS</h2>
