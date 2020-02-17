@@ -6,7 +6,8 @@ import {
   commentsPost,
   commentCreate,
   verifyUser,
-  commentDelete
+  commentDelete,
+  commentSingle
 } from "../services/api_helper";
 
 class Comments extends Component {
@@ -38,17 +39,29 @@ class Comments extends Component {
     });
   };
 
-  deleteComment = async (e, vidId) => {
+  editComment = async (e, commentId) => {
     e.preventDefault();
-    const comment = await commentDelete(this.props.vid_id, vidId);
+    const comment = await commentSingle(this.props.vid_id, commentId);
     console.log(comment);
   };
 
-  countDays = postDate => {
+  deleteComment = async (e, commentId) => {
+    e.preventDefault();
+    const oldComment = await commentDelete(this.props.vid_id, commentId);
+    console.log(oldComment);
+    const comments = this.state.comments.filter(
+      comment => comment.id !== commentId
+    );
+    this.setState({
+      comments
+    });
+  };
+
+  countDays = commentDate => {
     let now = new Date();
-    let post = new Date(postDate);
+    let post = new Date(commentDate);
     let diff_time = now.getTime() - post.getTime();
-    let diff_days = Math.round(diff_time / (1000 * 3600 * 24));
+    let diff_days = Math.floor(diff_time / (1000 * 3600 * 24));
     return diff_days;
   };
 
@@ -70,7 +83,9 @@ class Comments extends Component {
               </h6>
               {parseInt(this.state.user_id) === parseInt(comment.created_by) ? (
                 <div className="comment_options">
-                  <button>EDIT</button>
+                  <button onClick={e => this.editComment(e, comment.id)}>
+                    EDIT
+                  </button>
                   <button onClick={e => this.deleteComment(e, comment.id)}>
                     DELETE
                   </button>
