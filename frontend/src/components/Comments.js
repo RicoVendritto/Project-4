@@ -7,7 +7,8 @@ import {
   commentCreate,
   verifyUser,
   commentDelete,
-  commentSingle
+  commentSingle,
+  commentUpdate
 } from "../services/api_helper";
 
 class Comments extends Component {
@@ -18,7 +19,9 @@ class Comments extends Component {
       apiDataLoaded: false,
       user_id: null,
       edit_div: null,
-      edit_active: null
+      comment_id: null,
+      comment_edit: null,
+      comment_text: ""
     };
   }
 
@@ -48,26 +51,57 @@ class Comments extends Component {
     this.setState({
       edit_div: (
         <>
-          <input type="text" value={comment.comment}></input>
+          <input
+            type="text"
+            name="comment_text"
+            placeholder="Please enter your comment here..."
+            defaultValue={comment.comment}
+            onChange={e => this.handleChange(e)}
+          ></input>
           <h5>{comment.user_name}</h5>
           <h6>
             Posted {this.countDays(comment.created_at.split("T")[0])} days ago
           </h6>
         </>
       ),
-      edit_active: commentId
+      comment_id: commentId,
+      comment_edit: comment
+    });
+  };
+
+  putComment = async (e, commentId) => {
+    let commentData = this.state.comment_edit;
+    commentData.comment = this.state.comment_text;
+    const putComment = await commentUpdate(
+      this.props.vid_id,
+      commentId,
+      commentData
+    );
+    const comments = this.state.comments.filter(
+      comment => parseInt(comment.id) !== parseInt(commentId)
+    );
+    comments.push(commentData);
+    this.setState({
+      comment_id: null,
+      comments
     });
   };
 
   deleteComment = async (e, commentId) => {
     e.preventDefault();
     const oldComment = await commentDelete(this.props.vid_id, commentId);
-    console.log(oldComment);
     const comments = this.state.comments.filter(
-      comment => comment.id !== commentId
+      comment => parseInt(comment.id) !== parseInt(commentId)
     );
     this.setState({
       comments
+    });
+  };
+
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
     });
   };
 
@@ -89,7 +123,7 @@ class Comments extends Component {
         {this.state.apiDataLoaded &&
           this.state.comments.map((comment, id) => (
             <div key={id} className="ind_comment">
-              {parseInt(this.state.edit_active) !== parseInt(comment.id) ? (
+              {parseInt(this.state.comment_id) !== parseInt(comment.id) ? (
                 <>
                   <p>{comment.comment}</p>
                   <h5>{comment.user_name}</h5>
@@ -103,7 +137,7 @@ class Comments extends Component {
               )}
               {parseInt(this.state.user_id) === parseInt(comment.created_by) ? (
                 <div className="comment_options">
-                  {parseInt(this.state.edit_active) !== parseInt(comment.id) ? (
+                  {parseInt(this.state.comment_id) !== parseInt(comment.id) ? (
                     <button onClick={e => this.editComment(e, comment.id)}>
                       EDIT
                     </button>
