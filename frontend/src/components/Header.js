@@ -8,6 +8,11 @@ class Header extends Component {
     this.state = {};
   }
 
+  closeSideMenu = (e, address) => {
+    this.hamburgerToggle(e);
+    this.props.history.push(address);
+  };
+
   hamburgerToggle = e => {
     e.preventDefault();
     const burgerMenu = document.querySelector(".hamburger");
@@ -86,11 +91,13 @@ class Header extends Component {
         </section>
         <section className="header head-left hide-menu">
           <Link to="/main">
-            <button>Home</button>
+            <button onClick={e => this.closeSideMenu(e, "/main")}>Home</button>
           </Link>
           <button>Liked</button>
           <Link to="/upload">
-            <button>Upload</button>
+            <button onClick={e => this.closeSideMenu(e, "/upload")}>
+              Upload
+            </button>
           </Link>
         </section>
       </header>
