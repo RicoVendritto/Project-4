@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
   # GET /posts/:post_id/comments/:id
   def show
-    json_response(@post)
+    json_response(@comment)
   end
 
   # POST /posts/:post_id/comments
