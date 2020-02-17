@@ -219,12 +219,13 @@ main {
 
 /////////////////// MAIN ///////////////////
 
-.single-video {
+.single_video {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: auto;
+  max-width: 50vw;
 }
 
 /////////////////// COMMENTS ///////////////////
