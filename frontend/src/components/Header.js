@@ -5,8 +5,28 @@ import { Link, withRouter } from "react-router-dom";
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      name: null,
+      email: null,
+      id: null,
+      profile_pic: null,
+      default_pic:
+        "https://i5.walmartimages.com/asr/9d3860a6-4ac0-4f75-a412-ac56cbab01a7_1.f695c93416d562f09ddc4e4b9a88a5d8.jpeg"
+    };
   }
+
+  componentDidMount = () => {
+    const name = localStorage.getItem("name");
+    const email = localStorage.getItem("email");
+    const id = localStorage.getItem("id");
+    const profile_pic = localStorage.getItem("profile_pic");
+    this.setState({
+      name,
+      email,
+      id,
+      profile_pic
+    });
+  };
 
   closeSideMenu = (e, address) => {
     this.hamburgerToggle(e);
@@ -29,6 +49,7 @@ class Header extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <header>
         <section className="header head-top">
@@ -81,7 +102,11 @@ class Header extends Component {
           <img
             className="user_avatar"
             alt="user"
-            src="https://i5.walmartimages.com/asr/9d3860a6-4ac0-4f75-a412-ac56cbab01a7_1.f695c93416d562f09ddc4e4b9a88a5d8.jpeg"
+            src={
+              this.state.profile_pic
+                ? this.state.profile_pic
+                : this.state.default_pic
+            }
           />
           <img
             className="spinning_gif"
