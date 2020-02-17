@@ -38,10 +38,12 @@ export const registerUser = async registerData => {
 };
 
 const LocalStorage = resp => {
+  console.log(resp);
   localStorage.setItem("authToken", resp.data.auth_token);
   localStorage.setItem("name", resp.data.user.name);
   localStorage.setItem("email", resp.data.user.email);
   localStorage.setItem("id", resp.data.user.id);
+  localStorage.setItem("profile_pic", resp.data.user.profile_pic);
 };
 
 // VERIFY USER
