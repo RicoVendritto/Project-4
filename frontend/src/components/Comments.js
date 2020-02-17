@@ -77,10 +77,13 @@ class Comments extends Component {
       commentId,
       commentData
     );
-    const comments = this.state.comments.filter(
-      comment => parseInt(comment.id) !== parseInt(commentId)
-    );
-    comments.push(commentData);
+    const comments = this.state.comments.map(comment => {
+      if (parseInt(comment.id) !== parseInt(commentId)) {
+        return comment;
+      } else {
+        return commentData;
+      }
+    });
     this.setState({
       comment_id: null,
       comments
