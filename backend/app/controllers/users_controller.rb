@@ -12,21 +12,6 @@ class UsersController < ApplicationController
     json_response(response, :created)
   end
 
-  # def login
-  #   @user = User.find_by_email(params[:email])
-  #   puts @user
-  #   if @user.authenticate(params[:password])
-  #     token = encode(id @user.id, name: @user.name)
-  #     response = {auth_token: token, user: @user}
-  #     puts response
-  #     json_response(response)
-  #   else
-  #     response = {message: Message.invalid_credentials, status: 404}
-  #     puts response
-  #     json_response(response)
-  #   end
-  # end
-
   private
 
   def user_params
@@ -34,7 +19,8 @@ class UsersController < ApplicationController
         :name,
         :email,
         :password,
-        :password_confirmation
+        :password_confirmation,
+        :profile_pic
     )
   end
 
