@@ -115,6 +115,7 @@ body {
 
   .user_avatar {
     height: 7.5vh;
+    width: 7.5vh;
     border-radius: 50%;
     border: 0.5px solid white;
     background-color: black;
@@ -157,13 +158,21 @@ body {
   width: 10%;
 }
 
-/////////////////// LOGIN ///////////////////
+/////////////////// LOGIN / REGISTER ///////////////////
 
 .register-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .profile_picture {
+    border-radius: 50%;
+    height: 40vh;
+    width: 40vh;
+    border: 0.5px lightgrey solid;
+    background-color: lightgrey;
+  }
 
   input {
     margin: 2vh 2vw;
@@ -231,6 +240,12 @@ main {
 /////////////////// COMMENTS ///////////////////
 
 .ind_comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
   margin: 1vh auto;
   width: 50vw;
   background-color: rgba(255, 255, 255, 0.7);
@@ -253,6 +268,10 @@ main {
   }
 
   .comment_options {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
