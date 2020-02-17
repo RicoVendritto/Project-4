@@ -16,7 +16,9 @@ class Comments extends Component {
     this.state = {
       comments: null,
       apiDataLoaded: false,
-      user_id: null
+      user_id: null,
+      edit_div: null,
+      edit_active: null
     };
   }
 
@@ -43,6 +45,18 @@ class Comments extends Component {
     e.preventDefault();
     const comment = await commentSingle(this.props.vid_id, commentId);
     console.log(comment);
+    this.setState({
+      edit_div: (
+        <>
+          <input type="text" value={comment.comment}></input>
+          <h5>{comment.user_name}</h5>
+          <h6>
+            Posted {this.countDays(comment.created_at.split("T")[0])} days ago
+          </h6>
+        </>
+      ),
+      edit_active: commentId
+    });
   };
 
   deleteComment = async (e, commentId) => {
@@ -75,17 +89,29 @@ class Comments extends Component {
         {this.state.apiDataLoaded &&
           this.state.comments.map((comment, id) => (
             <div key={id} className="ind_comment">
-              <p>{comment.comment}</p>
-              <h5>{comment.user_name}</h5>
-              <h6>
-                Posted {this.countDays(comment.created_at.split("T")[0])} days
-                ago
-              </h6>
+              {parseInt(this.state.edit_active) !== parseInt(comment.id) ? (
+                <>
+                  <p>{comment.comment}</p>
+                  <h5>{comment.user_name}</h5>
+                  <h6>
+                    Posted {this.countDays(comment.created_at.split("T")[0])}{" "}
+                    days ago
+                  </h6>
+                </>
+              ) : (
+                this.state.edit_div
+              )}
               {parseInt(this.state.user_id) === parseInt(comment.created_by) ? (
                 <div className="comment_options">
-                  <button onClick={e => this.editComment(e, comment.id)}>
-                    EDIT
-                  </button>
+                  {parseInt(this.state.edit_active) !== parseInt(comment.id) ? (
+                    <button onClick={e => this.editComment(e, comment.id)}>
+                      EDIT
+                    </button>
+                  ) : (
+                    <button onClick={e => this.putComment(e, comment.id)}>
+                      SAVE
+                    </button>
+                  )}
                   <button onClick={e => this.deleteComment(e, comment.id)}>
                     DELETE
                   </button>
