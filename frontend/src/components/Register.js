@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
+import defaultProfilePic from "../resources/default_profile_pic.png";
 
 class Register extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class Register extends Component {
       name: "",
       email: "",
       password: "",
-      password_confirm: ""
+      password_confirm: "",
+      profile_pic: ""
     };
   }
 
@@ -27,6 +29,23 @@ class Register extends Component {
           onSubmit={e => this.props.handleRegister(e, this.state)}
         >
           {this.props.errorText && <h4>{this.props.errorText}</h4>}
+          <img
+            className="profile_picture"
+            src={
+              this.state.profile_pic === ""
+                ? defaultProfilePic
+                : this.state.profile_pic
+            }
+          />
+          <input
+            type="text"
+            name="profile_pic"
+            autoComplete="none"
+            placeholder="profile picture"
+            value={this.state.profile_pic}
+            onChange={e => this.handleChange(e)}
+            required
+          />
           <input
             type="text"
             name="name"
