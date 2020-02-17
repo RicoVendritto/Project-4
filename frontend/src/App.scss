@@ -15,6 +15,18 @@ body {
   // outline: 1px solid aquamarine;
 }
 
+#test {
+  height: 20vh;
+  width: 20vw;
+  position: fixed;
+  left: 50;
+  top: 50;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  font-weight: 900;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
 /////////////////// CHATBOX ///////////////////
 
 .chatBoard {
@@ -104,14 +116,14 @@ body {
   .user_avatar {
     height: 7.5vh;
     border-radius: 50%;
-    border: .5px solid white;
+    border: 0.5px solid white;
     background-color: black;
   }
 
   .spinning_gif {
     height: 7.5vh;
     border-radius: 50%;
-    border: .5px solid white;
+    border: 0.5px solid white;
     background-color: black;
   }
 }
