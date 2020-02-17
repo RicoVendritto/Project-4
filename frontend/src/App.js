@@ -89,12 +89,14 @@ class App extends Component {
     e.preventDefault();
     const resp = await postsCreate(videoData);
     console.log(resp);
+    this.props.history.push("/main");
   };
 
   updateVideo = async (e, id, postData) => {
     e.preventDefault();
     const resp = await postUpdate(id, postData);
     console.log(resp);
+    this.props.history.push("/main");
   };
 
   render() {
