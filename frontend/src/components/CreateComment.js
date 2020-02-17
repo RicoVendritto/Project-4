@@ -23,10 +23,15 @@ class CreateComment extends Component {
   handleChange = e => {
     const { name, value } = e.target;
     console.log(name);
-    console.log(value); 
+    console.log(value);
     this.setState({
       [name]: value
     });
+  };
+
+  postComment = e => {
+    this.props.handleComment(e, this.props.vid_id, this.state);
+    document.querySelector(".comment-form").reset();
   };
 
   render() {
@@ -34,18 +39,12 @@ class CreateComment extends Component {
     console.log(this.props);
     return (
       <div>
-        <form
-          className="comment-form"
-          onSubmit={e =>
-            this.props.handleComment(e, this.props.vid_id, this.state)
-          }
-        >
+        <form className="comment-form" onSubmit={e => this.postComment(e)}>
           <input
             type="text"
             name="comment"
             autoComplete="none"
             placeholder="comment"
-            value={this.state.comment}
             onChange={e => this.handleChange(e)}
             required
           />
