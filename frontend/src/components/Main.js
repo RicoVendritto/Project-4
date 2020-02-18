@@ -3,6 +3,9 @@ import ReactPlayer from "react-player";
 import "./Main.scss";
 import { Link, withRouter } from "react-router-dom";
 import { verifyUser, postsAll, postDelete } from "../services/api_helper";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+const likeButton = <FontAwesomeIcon icon={faHeart} />;
 
 class Main extends Component {
   constructor(props) {
@@ -33,7 +36,7 @@ class Main extends Component {
     const posts = this.state.posts.filter(post => post.id !== id);
     this.setState({
       posts
-    })
+    });
   };
 
   countDays = postDate => {
@@ -56,24 +59,41 @@ class Main extends Component {
               <Link to={`/video/${post.id}`}>
                 <h4>{post.title}</h4>
               </Link>
-              <ReactPlayer
-                url={post.video_url}
-                config={{
-                  youtube: { playerVars: { controls: 0, modestbranding: 1 } }
-                }}
-              />
-              <p>Posted {this.countDays(post.created_at)} days ago</p>
-              <p>{post.artist}</p>
+              <div className="video_container">
+                <ReactPlayer
+                  className="react_player"
+                  url={post.video_url}
+                  width="100%"
+                  height="100%"
+                  config={{
+                    youtube: { playerVars: { controls: 0, modestbranding: 1 } }
+                  }}
+                />
+              </div>
+              <p className="post_age">
+                Posted {this.countDays(post.created_at)} days ago
+              </p>
+              <p className="post_artist">Artist: {post.artist}</p>
               <p>{post.description}</p>
               {parseInt(this.state.user_id) === parseInt(post.created_by) ? (
                 <div className="comment_options">
-                  <Link to={`/edit/${post.id}`}><button>EDIT</button></Link>
-                  <button onClick={e => this.deleteVideo(e, post.id)}>
-                    DELETE
-                  </button>
+                  <div>
+                    <Link to={`/edit/${post.id}`}>
+                      <button className="post_button">EDIT</button>
+                    </Link>
+                    <button
+                      className="post_button"
+                      onClick={e => this.deleteVideo(e, post.id)}
+                    >
+                      DELETE
+                    </button>
+                  </div>
+                  <div>
+                    <i className="like_button boring">{likeButton}</i>
+                  </div>
                 </div>
               ) : (
-                <div className="comment_options">NO OPTIONS</div>
+                <div className="comment_options"> </div>
               )}
             </div>
           ))}
