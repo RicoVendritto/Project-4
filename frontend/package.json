@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@google/model-viewer": "^0.8.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.8",
@@ -13,7 +14,6 @@
     "caret-pos": "^1.2.2",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",
-    "react-3d-viewer": "^1.0.12",
     "react-dom": "^16.12.0",
     "react-player": "^1.15.2",
     "react-router-dom": "^5.1.2",
