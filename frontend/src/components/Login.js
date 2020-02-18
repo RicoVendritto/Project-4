@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { position, offset } from "caret-pos";
+import Model from "./Model";
 
 class Login extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <Model />
         <form
           className="register-form"
           onSubmit={e => this.props.handleLogin(e, this.state)}
