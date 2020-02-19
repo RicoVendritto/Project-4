@@ -73,6 +73,7 @@ class Model extends Component {
   };
 
   caret = () => {
+    console.log(this.state.input);
     const off = offset(this.state.input);
     let x = Math.round((off.left / window.innerWidth) * 100);
     let y = Math.round((off.top / window.innerHeight) * 100);
@@ -104,7 +105,7 @@ class Model extends Component {
         <form className="test_form">
           <input
             className="i_am_a_text_field"
-            type="text"
+            type="email"
             onChange={e => this.caret()}
           />
         </form>
