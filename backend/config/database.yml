@@ -6,7 +6,7 @@ default: &default
   timeout: 5000
   username: myuser
   password: mypass
-  host: localhost
+  host: blooming-coast-01603.herokuapp.com
 
 development:
   <<: *default
@@ -17,4 +17,4 @@ development:
   timeout: 5000
   username: myuser
   password: mypass
-  host: localhost
+  host: blooming-coast-01603.herokuapp.com
