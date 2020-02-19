@@ -1,13 +1,12 @@
 class AuthenticateUser
-  def initialize(email, password, id)
+  def initialize(email, password)
     @email = email
     @password = password
-    @id = id
   end
 
   # Service entry point
   def call
-    JsonWebToken.encode(user_id: user.id) if user
+    JsonWebToken.encode(user_id: @user.id) if @user
   end
 
   private
