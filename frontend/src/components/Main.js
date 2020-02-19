@@ -57,7 +57,7 @@ class Main extends Component {
           this.state.posts.map((post, key) => (
             <div key={key} className="ind_vid_container">
               <Link to={`/video/${post.id}`}>
-                <h4>{post.title}</h4>
+                <h4 className="video_header">{post.title}</h4>
               </Link>
               <div className="video_container">
                 <ReactPlayer
