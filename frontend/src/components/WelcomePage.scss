@@ -1,5 +1,8 @@
 .container {
   // margin: 10vh auto;
+  position: fixed;
+  left: 0;
+  top: 0;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -7,6 +10,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: black;
 }
 
 .welcome-video {
@@ -21,7 +25,7 @@
 .txt {
   color: #fff;
   background: #000;
-  font-weight: bold;
+  font-weight: bolder;
   font-family: arial;
   width: 80vw;
   text-transform: uppercase;
@@ -33,6 +37,7 @@
 .txt1 {
   font-size: 6em;
   letter-spacing: 1vw;
+  
 
   &::before {
     content: "INTERNATIONAL";
@@ -73,12 +78,14 @@
 }
 
 .gradient {
-  background: linear-gradient(
-    112.72013189013455deg,
-    rgba(37, 63, 79, 1) 4.927083333333334%,
-    rgba(181, 103, 127, 1) 53.70833333333333%,
-    rgba(204, 198, 186, 1) 97.84374999999999%
-  );
+  background:
+  //  linear-gradient(
+  //   112.72013189013455deg,
+  //   rgba(37, 63, 79, 1) 4.927083333333334%,
+  //   rgba(181, 103, 127, 1) 53.70833333333333%,
+  //   rgba(204, 198, 186, 1) 97.84374999999999%
+  // );
+  linear-gradient(111.5351258287576deg, rgba(128, 234, 209,1) 4.927083333333334%,rgba(91, 52, 162,1) 97.84374999999999%);
   position: absolute;
   top: 0;
   left: 0;
