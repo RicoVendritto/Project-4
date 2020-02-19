@@ -4,7 +4,7 @@ $scnd-gray-dark-a: rgba(255, 255, 255, 0.7);
 $scnd-gray-light-a: rgba(255, 255, 255, 0.2);
 
 body {
-  background-color: $prim-bckgrnd;
+  background-color: white;
   color: white;
 }
 
@@ -40,13 +40,15 @@ body {
   bottom: 0;
   height: 40vh;
   width: 22vw;
+  z-index: 99;
 
-  iframe {
+  .chatApp {
     position: absolute;
     background-color: darkcyan;
     height: 40vh;
     width: 22vw;
     transition: 1s;
+    z-index: 99;
 
     &.is-active {
       left: 0;
@@ -65,9 +67,11 @@ body {
     border: none;
     bottom: 1vh;
     right: 1vh;
-    color: $scnd-gray-dark-a;
+    // color: $scnd-gray-dark-a;
+    color: black;
     font-size: 3em;
     transition: color 1s;
+    z-index: 100;
   }
 
   .grayed-out {
@@ -83,9 +87,8 @@ body {
   z-index: 99;
 
   button {
-    margin: 0;
     padding: 0;
-    width: 12vh;
+    width: 10vh;
     height: 7.5vh;
     border-radius: 15px;
     border: 0.5px solid white;
@@ -93,7 +96,7 @@ body {
     color: black;
     text-transform: uppercase;
     font-weight: 900;
-    box-shadow: 1px 1px 1px blue;
+    // box-shadow: 1px 1px 1px blue;
 
     &:hover {
       box-shadow: 3px 3px 3px blue;
@@ -139,9 +142,9 @@ body {
   position: fixed;
   top: 50vh;
   transform: translateY(-50%);
-  width: 8vw;
+  width: 7vw;
   height: 40vh;
-  background: rgba(255, 255, 255, 0.7);
+  background: $prim-bckgrnd-a;
   border-radius: 0 5px 5px 0;
   display: flex;
   flex-direction: column;
@@ -149,6 +152,10 @@ body {
   flex: 10;
   align-items: center;
   transition: 1s;
+
+  button {
+    margin: 0 1vw;
+  }
 }
 
 .show-menu {
@@ -156,7 +163,7 @@ body {
 }
 
 .hide-menu {
-  left: -7.5vw;
+  left: -6.5vw;
 }
 
 .edm-logo {
@@ -166,36 +173,84 @@ body {
 
 /////////////////// LOGIN / REGISTER ///////////////////
 
-.register-form {
+.login-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .profile_picture {
-    border-radius: 50%;
-    height: 40vh;
-    width: 40vh;
-    border: 0.5px lightgrey solid;
-    background-color: lightgrey;
-  }
-
-  input {
-    margin: 2vh 2vw;
-    padding: 1vh 1vw;
-    width: 25vw;
-    height: 5vh;
+  .register-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 50vw;
+    background-color: transparent;
+    color: white;
+    font-size: 1.5em;
 
-    &::placeholder {
-      color: blue;
-      font-weight: 500;
-      font-size: 2em;
-      text-transform: uppercase;
+    .profile_picture {
+      border-radius: 50%;
+      height: 40vh;
+      width: 40vh;
+      border: 0.5px lightgrey solid;
+      background-color: lightgrey;
     }
+
+    input {
+      margin: 2vh 2vw;
+      padding: 1vh 1vw;
+      width: 30vw;
+      height: 8vh;
+      display: flex;
+      font-size: 2em;
+      color: black;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+
+      &::placeholder {
+        font-size: 1em;
+        color: limegreen;
+        text-transform: uppercase;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .post_button {
+    height: 4vh;
+    width: 15vw;
+    margin: 0.1vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 1px 0px 0px #f29c93;
+    background: linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+    background-color: #fe1a00;
+    border-radius: 6px;
+    border: 1px solid #d83526;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #b23e35;
+  }
+  .post_button:hover {
+    background: linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+    background-color: #ce0100;
+  }
+  .post_button:active {
+    position: relative;
+    top: 1px;
   }
 }
 
@@ -216,6 +271,7 @@ main {
     // margin-left: 100vw;
 
     .ind_vid_container {
+      background-color: $prim-bckgrnd;
       margin: 1vh 1vw;
       padding: 0 1vw 0 1vw;
       width: 40vw;
@@ -223,13 +279,19 @@ main {
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: flex-start;
       align-items: left;
       border: 0.5px solid lightgrey;
+      box-shadow: 1px 1px 5px black;
+
+      .video_header {
+        margin: 2vh auto;
+        font-size: 1.2em;
+      }
 
       .video_container {
         position: relative;
-        margin: 0 -0.5vw;
+        margin: 1vh -0.5vw;
         width: 41vw;
         height: 30vh;
         overflow: hidden;
@@ -237,17 +299,20 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        z-index: 0;
+        box-shadow: 1px 1px 5px black;
 
         .react_player {
           width: 100%;
           height: 100%;
+          z-index: 0;
         }
       }
       .post_age {
         font-size: 0.5em;
         font-weight: 500;
         padding: 0;
-        margin: 0;
+        margin: 0.5vh 0 1vh 0;
       }
 
       .post_artist {
@@ -289,7 +354,7 @@ main {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          margin: 0 .5vw 0 0;
+          margin: 0 0.5vw 0 0;
           box-shadow: inset 0px 1px 0px 0px #f29c93;
           background: linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
           background-color: #fe1a00;
@@ -316,7 +381,8 @@ main {
       }
     }
 
-    a, a > h4 {
+    a,
+    a > h4 {
       color: white;
       font-size: 1em;
       margin: 0;
