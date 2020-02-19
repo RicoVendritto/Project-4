@@ -43,6 +43,11 @@ class App extends Component {
           currentUser: user
         });
     }
+    setTimeout(e => this.mainLoader(), 8000);
+  };
+
+  mainLoader = () => {
+    this.props.history.push("/main");
   };
 
   handleLogin = async (e, loginData) => {
@@ -102,7 +107,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <WelcomePage /> */}
         <Header
           currentUser={this.state.currentUser}
           handleLogout={this.handleLogout}
@@ -111,6 +115,7 @@ class App extends Component {
         {/* <Background /> */}
         <main>
           <Switch>
+            <Route exact path="/" render={() => <WelcomePage />} />
             <Route
               exact
               path="/login"
