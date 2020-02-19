@@ -1,7 +1,8 @@
 class AuthenticateUser
-  def initialize(email, password)
+  def initialize(email, password, id)
     @email = email
     @password = password
+    @id = id
   end
 
   # Service entry point
