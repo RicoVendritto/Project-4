@@ -13,51 +13,41 @@ class Model extends Component {
       Ybaseline: 120,
       x: 0,
       y: 90,
-      input: null
+      input: null,
+      off: null
     };
   }
 
   cameraUp = () => {
-    // console.log("cam-up");
     const model = document.querySelector("#model");
     model.removeAttribute("camera-orbit");
     model.setAttribute("camera-orbit", "0deg 140deg 1m");
   };
 
   cameraDown = () => {
-    // console.log("cam-down");
     const model = document.querySelector("#model");
     model.removeAttribute("camera-orbit");
     model.setAttribute("camera-orbit", "0deg 60deg 1m");
   };
 
   tryout = () => {
-    // console.log("test");
     setInterval(this.cameraDown, 2000);
   };
 
   componentDidMount = () => {
     window.addEventListener("mousemove", this.trigger);
-    const input = document.querySelector(".i_am_a_text_field");
     this.setState({
-      input
+      x: this.props.x,
+      y: this.props.y
     });
-    // setInterval(this.cameraUp, 2000);
-    // setTimeout(this.tryout, 1000);
+    // const input = document.querySelector(".i_am_a_text_field");
+    // this.setState({
+    //   input
+    // });
   };
 
   trigger = e => {
-    this.cursor(e);
     this.model(e);
-  };
-
-  cursor = e => {
-    // mouseCursor.style.top = e.pageY + "px";
-    // mouseCursor.style.left = e.pageX + "px";
-    // console.log(`Mouse Y: ${e.pageY}`);
-    // console.log(`Window Y: ${window.innerHeight}`);
-    // console.log(`Mouse X: ${e.pageX}`);
-    // console.log(`Window X: ${window.innerWidth}`);
   };
 
   model = e => {
@@ -88,9 +78,10 @@ class Model extends Component {
   };
 
   render() {
+    console.log(this.state.x);
+    console.log(this.state.y);
     return (
-      <div>
-        <p>START</p>
+      <div className="model_wrapper">
         <model-viewer
           id="model"
           shadow-intensity="0"
@@ -99,17 +90,7 @@ class Model extends Component {
           skybox_image
           poster={Loading}
           src={Marsh}
-          // camera-controls
-          //   auto-rotate
         ></model-viewer>
-        <form className="test_form">
-          <input
-            className="i_am_a_text_field"
-            type="text"
-            onChange={e => this.caret()}
-          />
-        </form>
-        <p>END</p>
       </div>
     );
   }
