@@ -117,12 +117,9 @@ class Comments extends Component {
   };
 
   render() {
-    console.log(this.props.vid_id);
-    console.log(this.state);
-    console.log(localStorage);
     return (
       <>
-        <h2>COMMENTS</h2>
+        <h2 className="comment_header">COMMENTS</h2>
         {this.state.apiDataLoaded &&
           this.state.comments.map((comment, id) => (
             <div key={id} className="ind_comment">
@@ -154,7 +151,10 @@ class Comments extends Component {
                   </button>
                 </div>
               ) : (
-                <div className="comment_options">NO OPTIONS</div>
+                <div className="comment_options">
+                  <button>EDIT</button>
+                  <button>DELETE</button>
+                </div>
               )}
             </div>
           ))}

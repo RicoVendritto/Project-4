@@ -43,11 +43,11 @@ class App extends Component {
           currentUser: user
         });
     }
-    setTimeout(e => this.mainLoader(), 8000);
+    setTimeout(e => this.mainLoader(), 5000);
   };
 
   mainLoader = () => {
-    this.props.history.push("/main");
+    // this.props.history.push("/main");
   };
 
   handleLogin = async (e, loginData) => {

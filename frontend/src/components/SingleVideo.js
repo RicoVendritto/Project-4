@@ -24,21 +24,30 @@ class SingleVideo extends Component {
 
   render() {
     console.log(this.props);
+    console.log(localStorage);
     return (
       this.state.video && (
         <div className="single_video">
           <div className="ind_vid_container">
-            <h4>{this.state.video.title}</h4>
-            <ReactPlayer
-              // playing
-              url={this.state.video.video_url}
-              config={{
-                youtube: { playerVars: { controls: 0, modestbranding: 1 } }
-              }}
-            />
+            <h4 className="video_header">{this.state.video.title}</h4>
+            <div className="video_container">
+              <ReactPlayer
+                className="react_player"
+                url={this.state.video.video_url}
+                width="100%"
+                height="100%"
+                config={{
+                  youtube: { playerVars: { controls: 0, modestbranding: 1 } }
+                }}
+              />
+            </div>
             <p>{this.state.video.description}</p>
+            <div className="comment_section">
+              {localStorage.getItem("id") && (
+                <Comments vid_id={this.props.vid_id} />
+              )}
+            </div>
           </div>
-          <Comments vid_id={this.props.vid_id} />
         </div>
       )
     );

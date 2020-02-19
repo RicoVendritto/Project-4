@@ -262,13 +262,13 @@ main {
   justify-content: center;
   align-items: center;
 
-  .main_container {
+  .main_container,
+  .single_video {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    // margin-left: 100vw;
 
     .ind_vid_container {
       background-color: $prim-bckgrnd;
@@ -404,37 +404,76 @@ main {
 
 /////////////////// COMMENTS ///////////////////
 
+.comment_header {
+  font-weight: 500;
+  font-size: 1em;
+  position: relative;
+
+  &::after {
+    content: "";
+    height: 10%;
+    width: 100%;
+    background-color: red;
+    position: absolute;
+    left: 0;
+    bottom: -0.5vh;
+  }
+}
+
+.comment_form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: .5vh auto;
+  
+  input {
+    width: 85%;
+    height: 5vh;
+  }
+
+  button {
+    width: 15%;
+    height: 6vh;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 .ind_comment {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   position: relative;
-
-  margin: 1vh auto;
-  width: 50vw;
+  margin: 1vh 0;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.7);
   color: black;
+  overflow: hidden;
 
   p {
+    width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0.5vh 0 0.5vh 0.5vw;
   }
 
   h5 {
-    color: black;
+    width: 100%;
     margin: 0;
-    padding: 0;
+    font-style: italic;
+    padding: 0 0 0 0.5vw;
   }
 
   h6 {
+    width: 100%;
+    font-weight: 300;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 0.5vw;
   }
 
   .comment_options {
     position: absolute;
-    right: 0;
+    right: 1vw;
     top: 0;
     height: 100%;
     display: flex;

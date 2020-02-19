@@ -39,7 +39,7 @@ class CreateComment extends Component {
     console.log(this.props);
     return (
       <div>
-        <form className="comment-form" onSubmit={e => this.postComment(e)}>
+        <form className="comment_form" onSubmit={e => this.postComment(e)}>
           <input
             type="text"
             name="comment"
