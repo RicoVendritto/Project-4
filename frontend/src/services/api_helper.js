@@ -1,6 +1,7 @@
 import axios from "axios";
 const api = axios.create({
-  baseURL: "http://blooming-coast-01603.herokuapp.com"
+  // baseURL: "http://blooming-coast-01603.herokuapp.com"
+  baseURL: "http://localhost:3000"
 });
 
 // LOGIN - 1
@@ -39,7 +40,6 @@ export const registerUser = async registerData => {
 };
 
 const LocalStorage = resp => {
-  console.log(resp);
   localStorage.setItem("authToken", resp.data.auth_token);
   localStorage.setItem("name", resp.data.user.name);
   localStorage.setItem("email", resp.data.user.email);
@@ -63,6 +63,7 @@ export const forgotUser = async email => {
 
 //PASSWORD RESET - 4
 export const resetUser = async resetData => {
+  console.log(resetData);
   const resp = await api.post(`password/reset`, resetData);
   return resp.data;
 };
@@ -125,5 +126,29 @@ export const commentUpdate = async (p_id, c_id, commentData) => {
 // DELETE COMMENT - 14
 export const commentDelete = async (p_id, c_id) => {
   const resp = await api.delete(`/posts/${p_id}/comments/${c_id}`);
+  return resp.data;
+};
+
+// CREATE FAV LIST - 15
+export const createFav = async favData => {
+  const resp = await api.post(`/favourites`, favData);
+  return resp.data;
+};
+
+// GET FAV LIST - 16
+export const getFav = async id => {
+  try {
+    const resp = await api.get(`/favourites/${id}`);
+    console.log(resp);
+    return resp.data;
+  } catch (e) {
+    return "error";
+  }
+};
+
+// UPDATE FAV LIST - 17
+export const updateFav = async (id, favData) => {
+  const resp = await api.put(`/favourites/${id}`, favData);
+  console.log(resp);
   return resp.data;
 };

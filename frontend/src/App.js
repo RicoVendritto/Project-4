@@ -21,6 +21,7 @@ import Register from "./components/Register";
 import ResetPassword from "./components/ResetPassword";
 import ForgotPassword from "./components/ForgotPassword";
 import Background from "./components/Background";
+import Favourites from "./components/Favourites";
 
 class App extends Component {
   constructor(props) {
@@ -56,7 +57,8 @@ class App extends Component {
     console.log(currentUser.errorMessage);
     if (!currentUser.errorMessage) {
       this.setState({
-        currentUser
+        currentUser,
+        errorText: null
       });
       this.props.history.push("/main");
     } else {
@@ -87,7 +89,8 @@ class App extends Component {
     localStorage.removeItem("name");
     localStorage.removeItem("email");
     localStorage.removeItem("id");
-    this.props.history.push("/main");
+    localStorage.removeItem("profile_pic");
+    this.props.history.push("/");
   };
 
   uploadVideo = async (e, videoData) => {
@@ -112,7 +115,7 @@ class App extends Component {
           handleLogout={this.handleLogout}
         />
         <ChatBoard />
-        {/* <Background /> */}
+        <Background />
         <main>
           <Switch>
             <Route exact path="/" render={() => <WelcomePage />} />
@@ -170,6 +173,7 @@ class App extends Component {
                 />
               )}
             />
+            <Route exact path="/favourites" render={props => <Favourites />} />
           </Switch>
         </main>
       </div>

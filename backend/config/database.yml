@@ -1,20 +1,29 @@
+#default: &default
+#  adapter: postgresql
+#  encoding: unicode
+#  database: iedb
+#  pool: <%#= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#  timeout: 5000
+#  username: myuser
+#  password: mypass
+#  host: localhost
+
+#development:
+#  <<: *default
+#  adapter: postgresql
+#  encoding: unicode
+#  database: iedb
+#  pool: <%#= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#  timeout: 5000
+#  username: myuser
+#  password: mypass
+#  host: localhost
+
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  database: iedb
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: myuser
-  password: mypass
-  host: blooming-coast-01603.herokuapp.com
 
 development:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  database: iedb
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
-  username: myuser
-  password: mypass
-  host: blooming-coast-01603.herokuapp.com
+  database: db/development.sqlite3

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import { postSingle, verifyUser } from "../services/api_helper";
 
@@ -18,7 +18,6 @@ class UpdatePost extends Component {
   componentDidMount = async () => {
     verifyUser();
     const post = await postSingle(this.props.postId);
-    console.log(post);
     this.setState({
       title: post.title,
       video_url: post.video_url,

@@ -40,7 +40,7 @@ body {
   bottom: 0;
   height: 40vh;
   width: 22vw;
-  z-index: 99;
+  z-index: -1;
 
   .chatApp {
     position: absolute;
@@ -67,7 +67,6 @@ body {
     border: none;
     bottom: 1vh;
     right: 1vh;
-    // color: $scnd-gray-dark-a;
     color: black;
     font-size: 3em;
     transition: color 1s;
@@ -91,8 +90,9 @@ body {
     width: 10vh;
     height: 7.5vh;
     border-radius: 2px;
-    outline: 0.5px solid black;
+    outline: 1px ridge red;
     outline-offset: -0.5vh;
+    outline-style: ridge;
     border: 0.5px solid white;
     background-color: white;
     color: black;
@@ -365,14 +365,6 @@ main {
         justify-content: space-between;
         align-items: center;
 
-        .like_button {
-          font-size: 1.5em;
-        }
-
-        .boring {
-          color: $scnd-gray-light-a;
-        }
-
         .post_button {
           height: 4vh;
           display: flex;
@@ -402,6 +394,19 @@ main {
         .post_button:active {
           position: relative;
           top: 1px;
+        }
+
+        .like_button {
+          font-size: 1.5em;
+          transition: 0.5 ease;
+        }
+
+        .boring {
+          color: $scnd-gray-light-a;
+        }
+
+        .love-it {
+          color: red;
         }
       }
     }

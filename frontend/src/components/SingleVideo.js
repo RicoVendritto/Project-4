@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { postSingle, verifyUser } from "../services/api_helper";
 import ReactPlayer from "react-player";
 import { withRouter } from "react-router-dom";
-
 import Comments from "./Comments";
-import CreateComment from "./CreateComment";
 
 class SingleVideo extends Component {
   constructor(props) {
@@ -23,8 +21,6 @@ class SingleVideo extends Component {
   };
 
   render() {
-    console.log(this.props);
-    console.log(localStorage);
     return (
       this.state.video && (
         <div className="single_video">

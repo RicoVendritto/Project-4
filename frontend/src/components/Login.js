@@ -70,7 +70,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="login-page">
         <div className="model_wrapper">

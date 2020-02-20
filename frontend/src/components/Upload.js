@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Upload extends Component {
   constructor(props) {
@@ -76,7 +76,7 @@ class Upload extends Component {
             onChange={e => this.handleChange(e)}
             required
           />
-          <button>Post</button>
+          <button className="post_button">Post</button>
         </form>
       </div>
     );

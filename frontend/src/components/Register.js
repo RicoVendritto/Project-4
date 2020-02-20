@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import defaultProfilePic from "../resources/default_profile_pic.png";
 
 class Register extends Component {
@@ -30,6 +30,7 @@ class Register extends Component {
         >
           {this.props.errorText && <h4>{this.props.errorText}</h4>}
           <img
+            alt="profile"
             className="profile_picture"
             src={
               this.state.profile_pic === ""

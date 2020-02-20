@@ -72,11 +72,7 @@ class Comments extends Component {
   putComment = async (e, commentId) => {
     let commentData = this.state.comment_edit;
     commentData.comment = this.state.comment_text;
-    const putComment = await commentUpdate(
-      this.props.vid_id,
-      commentId,
-      commentData
-    );
+    await commentUpdate(this.props.vid_id, commentId, commentData);
     const comments = this.state.comments.map(comment => {
       if (parseInt(comment.id) !== parseInt(commentId)) {
         return comment;
@@ -92,7 +88,7 @@ class Comments extends Component {
 
   deleteComment = async (e, commentId) => {
     e.preventDefault();
-    const oldComment = await commentDelete(this.props.vid_id, commentId);
+    await commentDelete(this.props.vid_id, commentId);
     const comments = this.state.comments.filter(
       comment => parseInt(comment.id) !== parseInt(commentId)
     );

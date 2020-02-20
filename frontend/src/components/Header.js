@@ -53,7 +53,8 @@ class Header extends Component {
     return (
       <header>
         <section className="header head-top">
-          <button id="hamburger_menu"
+          <button
+            id="hamburger_menu"
             onClick={e => this.hamburgerToggle(e)}
             className="hamburger hamburger--emphatic"
             type="button"
@@ -103,7 +104,7 @@ class Header extends Component {
             className="user_avatar"
             alt="user"
             src={
-              this.state.profile_pic
+              this.state.profile_pic !== "null"
                 ? this.state.profile_pic
                 : this.state.default_pic
             }
@@ -118,7 +119,11 @@ class Header extends Component {
           <Link to="/main">
             <button onClick={e => this.closeSideMenu(e, "/main")}>Home</button>
           </Link>
-          <button>Liked</button>
+          <Link to="/favourites">
+            <button onClick={e => this.closeSideMenu(e, "/favourites")}>
+              Liked
+            </button>
+          </Link>
           <Link to="/upload">
             <button onClick={e => this.closeSideMenu(e, "/upload")}>
               Upload

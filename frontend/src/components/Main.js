@@ -2,7 +2,14 @@ import React, { Component } from "react";
 import ReactPlayer from "react-player";
 import "./Main.scss";
 import { Link, withRouter } from "react-router-dom";
-import { verifyUser, postsAll, postDelete } from "../services/api_helper";
+import {
+  verifyUser,
+  postsAll,
+  postDelete,
+  getFav,
+  createFav,
+  updateFav
+} from "../services/api_helper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 const likeButton = <FontAwesomeIcon icon={faHeart} />;
@@ -32,7 +39,7 @@ class Main extends Component {
 
   deleteVideo = async (e, id) => {
     e.preventDefault();
-    const resp = await postDelete(id);
+    await postDelete(id);
     const posts = this.state.posts.filter(post => post.id !== id);
     this.setState({
       posts
@@ -47,10 +54,46 @@ class Main extends Component {
     return diff_days;
   };
 
+  likeThis = (e, postId) => {
+    const element = e.target;
+    this.toggleColour(element);
+    this.processLike(postId);
+    e.preventDefault();
+  };
+
+  toggleColour = element => {
+    element.classList.contains("boring")
+      ? element.classList.remove("boring")
+      : element.classList.add("boring");
+    element.classList.contains("love-it")
+      ? element.classList.remove("love-it")
+      : element.classList.add("love-it");
+  };
+
+  processLike = async postId => {
+    console.log(postId);
+    const resp = await getFav(this.state.user_id);
+    if (resp === "error") {
+      const res = await createFav({
+        created_by: this.state.user_id,
+        favourites: postId
+      });
+      console.log(res);
+    } else {
+      let created_by = resp.created_by;
+      let favourites = resp.favourites.split(",");
+      favourites = favourites.filter(
+        index => parseInt(index) !== parseInt(postId)
+      );
+      favourites.push(postId.toString());
+      const res = await updateFav(this.state.user_id, {
+        created_by: this.state.user_id,
+        favourites: favourites.join(",")
+      });
+    }
+  };
+
   render() {
-    console.log(this.state.posts);
-    console.log(this.state);
-    console.log(localStorage);
     return (
       <section className="main_container">
         {this.state.posts &&
@@ -89,11 +132,25 @@ class Main extends Component {
                     </button>
                   </div>
                   <div>
-                    <i className="like_button boring">{likeButton}</i>
+                    <i
+                      className="like_button boring"
+                      onClick={e => this.likeThis(e, post.id)}
+                    >
+                      {likeButton}
+                    </i>
                   </div>
                 </div>
               ) : (
-                <div className="comment_options"> </div>
+                <div className="comment_options">
+                  <div>
+                    <i
+                      className="like_button boring"
+                      onClick={e => this.likeThis(e, post.id)}
+                    >
+                      {likeButton}
+                    </i>
+                  </div>{" "}
+                </div>
               )}
             </div>
           ))}

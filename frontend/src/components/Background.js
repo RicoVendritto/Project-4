@@ -4,7 +4,7 @@ import "./Background.scss";
 const Background = () => {
   return (
     <div class="background-wrapper">
-      <div class="column c-1">
+      {/* <div class="column c-1">
         <div class="row r-1"></div>
         <div class="row r-2"></div>
         <div class="row r-3"></div>
@@ -123,7 +123,11 @@ const Background = () => {
         <div class="row r-8"></div>
         <div class="row r-9"></div>
         <div class="row r-10"></div>
-      </div>
+      </div> */}
+      <img
+        src={"https://www.edmtunes.com/wp-content/uploads/2018/12/6WKWIns.jpg"}
+        alt="background-hero"
+      />
     </div>
   );
 };

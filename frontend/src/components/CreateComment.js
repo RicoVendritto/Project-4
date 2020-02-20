@@ -31,7 +31,7 @@ class CreateComment extends Component {
 
   postComment = e => {
     this.props.handleComment(e, this.props.vid_id, this.state);
-    document.querySelector(".comment-form").reset();
+    document.querySelector(".comment_form").reset();
   };
 
   render() {
