@@ -54,11 +54,11 @@ class App extends Component {
   handleLogin = async (e, loginData) => {
     e.preventDefault();
     const currentUser = await loginUser(loginData);
-    console.log(currentUser.errorMessage);
+    console.log(currentUser);
     if (!currentUser.errorMessage) {
       this.setState({
         currentUser,
-        errorText: null
+        errorText: null,
       });
       this.props.history.push("/main");
     } else {
@@ -103,7 +103,6 @@ class App extends Component {
   updateVideo = async (e, id, postData) => {
     e.preventDefault();
     const resp = await postUpdate(id, postData);
-    console.log(resp);
     this.props.history.push("/main");
   };
 

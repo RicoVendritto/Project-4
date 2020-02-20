@@ -1,7 +1,7 @@
 import axios from "axios";
 const api = axios.create({
-  // baseURL: "http://blooming-coast-01603.herokuapp.com"
-  baseURL: "http://localhost:3000"
+  baseURL: "http://blooming-coast-01603.herokuapp.com"
+  // baseURL: "http://localhost:3000"
 });
 
 // LOGIN - 1

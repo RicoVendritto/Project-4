@@ -90,7 +90,7 @@ class ForgotPassword extends Component {
             onChange={e => this.handleChange(e)}
             required
           />
-          <button>Reset</button>
+          <button className="post_button">Reset</button>
         </form>
       </div>
     );

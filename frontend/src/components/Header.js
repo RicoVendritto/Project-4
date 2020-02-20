@@ -16,16 +16,24 @@ class Header extends Component {
   }
 
   componentDidMount = () => {
-    const name = localStorage.getItem("name");
-    const email = localStorage.getItem("email");
-    const id = localStorage.getItem("id");
-    const profile_pic = localStorage.getItem("profile_pic");
+    const resp = this.props.currentUser;
     this.setState({
-      name,
-      email,
-      id,
-      profile_pic
+      name: resp.name,
+      email: resp.email,
+      id: resp.id
     });
+  };
+
+  componentWillReceiveProps = () => {
+    const resp = this.props.currentUser;
+    if (resp.profile_pic) {
+      this.setState({
+        name: resp.name,
+        email: resp.email,
+        id: resp.id,
+        profile_pic: resp.profile_pic
+      });
+    }
   };
 
   closeSideMenu = (e, address) => {
@@ -50,6 +58,7 @@ class Header extends Component {
 
   render() {
     console.log(this.state);
+    console.log(this.props);
     return (
       <header>
         <section className="header head-top">
@@ -104,7 +113,7 @@ class Header extends Component {
             className="user_avatar"
             alt="user"
             src={
-              this.state.profile_pic !== "null"
+              this.state.profile_pic
                 ? this.state.profile_pic
                 : this.state.default_pic
             }

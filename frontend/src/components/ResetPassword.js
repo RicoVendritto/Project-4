@@ -25,14 +25,16 @@ class ResetPassword extends Component {
     });
   };
 
+  handleReset = e => {
+    e.preventDefault();
+    resetUser(this.state);
+  };
+
   render() {
     console.log(this.props);
     return (
       <div>
-        <form
-          className="register-form"
-          onSubmit={e => (e.preventDefault(), resetUser(this.state))}
-        >
+        <form className="register-form" onSubmit={e => this.handleReset(e)}>
           <input
             type="text"
             name="email"
@@ -51,7 +53,7 @@ class ResetPassword extends Component {
             onChange={e => this.handleChange(e)}
             required
           />
-          <button>Submit</button>
+          <button className="post_button">Submit</button>
         </form>
       </div>
     );
