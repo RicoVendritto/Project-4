@@ -73,8 +73,8 @@ class ForgotPassword extends Component {
             skybox_image
             poster={Loading}
             src={Marsh}
-            // autoplay
-            // camera-controls
+            autoplay
+            camera-controls
           ></model-viewer>
         </div>
         <form className="register-form" onSubmit={e => this.handleForget(e)}>
