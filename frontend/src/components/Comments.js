@@ -52,6 +52,7 @@ class Comments extends Component {
       edit_div: (
         <>
           <input
+            className="edit_text_field"
             type="text"
             name="comment_text"
             placeholder="Please enter your comment here..."

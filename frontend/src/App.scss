@@ -434,6 +434,16 @@ main {
 
 /////////////////// COMMENTS ///////////////////
 
+.edit_text_field {
+  background: $prim-bckgrnd-a;
+  color: white;
+  font-size: 1em;
+  border: 0.5px solid red;
+  width: 100%;
+  margin: 0;
+  padding: 0.5vh 0 0.5vh 0.5vw;
+}
+
 .comment_header {
   font-weight: 500;
   font-size: 1em;
