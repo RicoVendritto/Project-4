@@ -28,7 +28,7 @@ class ChatBoard extends Component {
       <div className="chatBoard">
         <iframe
           className="chatApp not-active"
-          url="http://localhost:4000/"
+          src={`https://secure-everglades-46448.herokuapp.com`}
         ></iframe>
         <button className="toggleChat"></button>
         <i onClick={() => this.chatToggle()} className="toggleChat">
