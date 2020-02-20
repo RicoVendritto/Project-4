@@ -100,6 +100,8 @@ GEM
       pusher-signature (~> 0.1.8)
     pusher-signature (0.1.8)
     rack (2.0.5)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
@@ -191,6 +193,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)
   pusher
+  rack-cors
   rails (~> 5.1.6)
   rails_12factor
   sass-rails (~> 5.0)
