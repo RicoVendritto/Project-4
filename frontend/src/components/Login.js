@@ -109,11 +109,13 @@ class Login extends Component {
             onChange={e => this.handleChange(e)}
             required
           />
-          <button className="post_button">Login</button>
+          <div className="form_options">
+            <button className="post_button">Login</button>
+            <button className="post_button">
+              <Link to="/forgotpassword">Forgot Password</Link>
+            </button>
+          </div>
         </form>
-        <Link to="/forgotpassword">
-          <button className="post_button">Forgot Password</button>
-        </Link>
       </div>
     );
   }

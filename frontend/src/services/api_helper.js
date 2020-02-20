@@ -11,6 +11,7 @@ export const loginUser = async loginData => {
     LocalStorage(resp);
     return resp.data.user;
   } catch (e) {
+    console.log(e);
     if (e.response.status === 401) {
       console.log("You shall not pass!");
       return {

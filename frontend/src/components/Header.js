@@ -53,7 +53,7 @@ class Header extends Component {
     return (
       <header>
         <section className="header head-top">
-          <button
+          <button id="hamburger_menu"
             onClick={e => this.hamburgerToggle(e)}
             className="hamburger hamburger--emphatic"
             type="button"

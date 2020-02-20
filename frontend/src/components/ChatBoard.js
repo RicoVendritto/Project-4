@@ -10,7 +10,7 @@ class ChatBoard extends Component {
   }
 
   chatToggle = () => {
-    let chatApp = document.querySelector("iframe");
+    let chatApp = document.querySelector("embed");
     let chatIcon = document.querySelector("i");
     chatApp.classList.contains("is-active")
       ? chatApp.classList.remove("is-active")
@@ -26,10 +26,15 @@ class ChatBoard extends Component {
   render() {
     return (
       <div className="chatBoard">
-        <iframe
+        {/* <iframe
+          className="chatApp not-active" */}
+        {/* // src={`https://secure-everglades-46448.herokuapp.com`} */}
+        {/* // src={`$http://localhost:4000/`} */}
+        {/* ></iframe> */}
+        <embed
           className="chatApp not-active"
-          src={`https://secure-everglades-46448.herokuapp.com`}
-        ></iframe>
+          src={"https://secure-everglades-46448.herokuapp.com"}
+        />
         <button className="toggleChat"></button>
         <i onClick={() => this.chatToggle()} className="toggleChat">
           {chat}

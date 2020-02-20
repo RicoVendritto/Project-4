@@ -82,7 +82,7 @@ class Register extends Component {
             onChange={e => this.handleChange(e)}
             required
           />
-          <button>Submit</button>
+          <button className="post_button">Submit</button>
         </form>
       </div>
     );
