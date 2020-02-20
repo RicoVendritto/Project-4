@@ -71,7 +71,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login-page">
+      <div className="login-page ">
         <div className="model_wrapper">
           <model-viewer
             id="model"
@@ -84,7 +84,7 @@ class Login extends Component {
           ></model-viewer>
         </div>
         <form
-          className="register-form"
+          className="register-form mobile-friendly-rego"
           onSubmit={e => this.props.handleLogin(e, this.state.logindeets)}
         >
           {this.props.errorText && <h4>{this.props.errorText}</h4>}

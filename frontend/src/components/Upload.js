@@ -28,7 +28,7 @@ class Upload extends Component {
     return (
       <div>
         <form
-          className="register-form"
+          className="register-form mobile-friendly-rego"
           onSubmit={e => this.props.uploadVideo(e, this.state)}
         >
           <input

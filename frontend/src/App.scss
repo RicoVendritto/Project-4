@@ -522,3 +522,84 @@ main {
     align-items: center;
   }
 }
+
+@media only screen and (max-width: 769px) {
+  .user_avatar {
+    display: none;
+  }
+
+  .header {
+    background: black;
+
+    #media_special {
+      height: 15vh;
+      margin: 2vh;
+      font-size: 1em;
+    }
+
+    .search_bar {
+      display: none;
+    }
+
+    .head-left {
+      height: 100vh;
+    }
+
+    .hide-menu {
+      position: fixed;
+      top: 0;
+      left: -12vw;
+    }
+  }
+
+  .mobile-friendly-rego {
+    width: 90vw;
+    input {
+      width: 90%;
+    }
+  }
+
+  .single_video {
+    width: 100vw;
+
+    ind_vid_container {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .main_container {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
+  .head-left {
+    height: 70vh;
+    width: 50vw;
+    background: $prim-bckgrnd-a;
+    z-index: 99;
+
+    button {
+      width: 40vw;
+      height: 10vh;
+      z-index: 99;
+    }
+  }
+
+  .hide-menu {
+    left: -46vw;
+  }
+
+  .show-menu {
+    left: 0vw;
+  }
+
+  #media_friendly_vid_container {
+    width: 90vw;
+
+    .video_container {
+      width: 89vw;
+    }
+  }
+}

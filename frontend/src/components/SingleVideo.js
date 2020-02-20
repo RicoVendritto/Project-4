@@ -23,7 +23,7 @@ class SingleVideo extends Component {
   render() {
     return (
       this.state.video && (
-        <div className="single_video">
+        <div className="single_video mobile_friendly_video">
           <div className="ind_vid_container">
             <h4 className="video_header">{this.state.video.title}</h4>
             <div className="video_container">

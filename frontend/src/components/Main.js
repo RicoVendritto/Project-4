@@ -98,7 +98,7 @@ class Main extends Component {
       <section className="main_container">
         {this.state.posts &&
           this.state.posts.map((post, key) => (
-            <div key={key} className="ind_vid_container">
+            <div key={key} id="media_friendly_vid_container" className="ind_vid_container">
               <Link to={`/video/${post.id}`}>
                 <h4 className="video_header">{post.title}</h4>
               </Link>

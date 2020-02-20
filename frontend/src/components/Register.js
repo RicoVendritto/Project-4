@@ -25,7 +25,7 @@ class Register extends Component {
     return (
       <div>
         <form
-          className="register-form"
+          className="register-form mobile-friendly-rego"
           onSubmit={e => this.props.handleRegister(e, this.state)}
         >
           {this.props.errorText && <h4>{this.props.errorText}</h4>}

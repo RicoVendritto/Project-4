@@ -86,7 +86,7 @@ class Header extends Component {
               fill="white"
             />
           </svg>
-          <form>
+          <form className="search_bar">
             <input type="text" placeholder="search" />
             <button>SEARCH</button>
           </form>
@@ -115,17 +115,31 @@ class Header extends Component {
             alt="user_gif"
           />
         </section>
-        <section className="header head-left hide-menu">
+        <section
+          id="mobile_friendly_head_left"
+          className="header head-left hide-menu"
+        >
           <Link to="/main">
-            <button onClick={e => this.closeSideMenu(e, "/main")}>Home</button>
+            <button
+              id="media_special"
+              onClick={e => this.closeSideMenu(e, "/main")}
+            >
+              Home
+            </button>
           </Link>
           <Link to="/favourites">
-            <button onClick={e => this.closeSideMenu(e, "/favourites")}>
+            <button
+              id="media_special"
+              onClick={e => this.closeSideMenu(e, "/favourites")}
+            >
               Liked
             </button>
           </Link>
           <Link to="/upload">
-            <button onClick={e => this.closeSideMenu(e, "/upload")}>
+            <button
+              id="media_special"
+              onClick={e => this.closeSideMenu(e, "/upload")}
+            >
               Upload
             </button>
           </Link>

@@ -107,3 +107,17 @@
     transform: translate(50%, 50%);
   }
 }
+
+@media only screen and (max-width: 769px) {
+  .txt1 {
+    font-size: 3em;
+  }
+
+  .txt2 {
+    font-size: 12em;
+  }
+
+  .txt3 {
+    font-size: 5em;
+  }
+}
