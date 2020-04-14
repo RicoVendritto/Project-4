@@ -40,15 +40,16 @@ body {
   bottom: 0;
   height: 40vh;
   width: 22vw;
-  z-index: -1;
+  transition: 1s ease;
+  z-index: 1;
 
   .chatApp {
     position: absolute;
-    // background-color: darkcyan;
+    background-color: darkcyan;
     height: 40vh;
     width: 22vw;
-    transition: 1s;
-    z-index: 99;
+    transition: 1s ease;
+    z-index: 5;
 
     &.is-active {
       left: 0;
@@ -70,7 +71,7 @@ body {
     color: black;
     font-size: 3em;
     transition: color 1s;
-    z-index: 100;
+    z-index: 10;
   }
 
   .grayed-out {
@@ -294,14 +295,16 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    z-index: 0;
 
     .ind_vid_container {
       background-color: $prim-bckgrnd;
       margin: 1vh 1vw;
       padding: 0 1vw 0 1vw;
       width: 40vw;
-      height: 70vh;
-      overflow: hidden;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -319,7 +322,7 @@ main {
         margin: 1vh -0.5vw;
         width: 41vw;
         height: 30vh;
-        overflow: hidden;
+        // overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -364,6 +367,7 @@ main {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 1vh;
 
         .post_button {
           height: 4vh;

@@ -149,8 +149,8 @@ class Comments extends Component {
                 </div>
               ) : (
                 <div className="comment_options">
-                  <button>EDIT</button>
-                  <button>DELETE</button>
+                  {/* <button>EDIT</button>
+                  <button>DELETE</button> */}
                 </div>
               )}
             </div>

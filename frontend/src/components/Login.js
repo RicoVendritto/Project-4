@@ -12,25 +12,25 @@ class Login extends Component {
     this.state = {
       logindeets: {
         email: "",
-        password: ""
+        password: "",
       },
       Xbaseline: 30,
       Ybaseline: 120,
       x: 0,
       y: 90,
       input: null,
-      off: null
+      off: null,
     };
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { name, value } = e.target;
     this.caret(e);
     this.setState({
       logindeets: {
         ...this.state.logindeets,
-        [name]: value
-      }
+        [name]: value,
+      },
     });
   };
 
@@ -38,11 +38,16 @@ class Login extends Component {
     window.addEventListener("mousemove", this.trigger);
   };
 
-  trigger = e => {
+  handleForgotPassword = (e) => {
+    e.preventDefault();
+    this.props.history.push("/forgotpassword");
+  }
+
+  trigger = (e) => {
     this.model(e);
   };
 
-  model = e => {
+  model = (e) => {
     let x = Math.round((e.pageX / window.innerWidth) * 100);
     x = (x / 100) * 60;
     x = this.state.Xbaseline - x;
@@ -51,11 +56,11 @@ class Login extends Component {
     y = this.state.Ybaseline - y;
     this.setState({
       x,
-      y
+      y,
     });
   };
 
-  caret = e => {
+  caret = (e) => {
     const off = offset(e.target);
     let x = Math.round((off.left / window.innerWidth) * 100);
     let y = Math.round((off.top / window.innerHeight) * 100);
@@ -65,7 +70,7 @@ class Login extends Component {
     y = this.state.Ybaseline - y;
     this.setState({
       x: x,
-      y: y
+      y: y,
     });
   };
 
@@ -85,7 +90,7 @@ class Login extends Component {
         </div>
         <form
           className="register-form mobile-friendly-rego"
-          onSubmit={e => this.props.handleLogin(e, this.state.logindeets)}
+          onSubmit={(e) => this.props.handleLogin(e, this.state.logindeets)}
         >
           {this.props.errorText && <h4>{this.props.errorText}</h4>}
           <input
@@ -95,7 +100,7 @@ class Login extends Component {
             autoComplete="email"
             placeholder="email"
             value={this.state.email}
-            onChange={e => this.handleChange(e)}
+            onChange={(e) => this.handleChange(e)}
             required
           />
           <input
@@ -105,16 +110,17 @@ class Login extends Component {
             autoComplete="current-password"
             placeholder="password"
             value={this.state.password}
-            onChange={e => this.handleChange(e)}
+            onChange={(e) => this.handleChange(e)}
             required
           />
           <div className="form_options">
             <button className="post_button">Login</button>
-            <button className="post_button">
-              <Link to="/forgotpassword">Forgot Password</Link>
-            </button>
           </div>
         </form>
+        <button onClick={this.handleForgotPassword} className="post_button">
+          {/* <Link to="/forgotpassword">Forgot Password</Link> */}
+          Forgot Password
+        </button>
       </div>
     );
   }
